@@ -1,0 +1,4 @@
+README.md merge=ours
+bitbucket-pipelines.yml merge=ours
+pom.xml merge=ours
+
