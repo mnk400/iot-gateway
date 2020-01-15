@@ -1,14 +1,14 @@
 /**
  * 
  */
-package schooldomain.studentname.connecteddevices.project;
+package neu.manikkumar.connecteddevices.labs;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Test class for all requisite Project functionality.
+ * Test class for all requisite Module04 functionality.
  * 
  * Instructions:
  * 1) Rename 'testSomething()' method such that 'Something' is specific to your needs; add others as needed, beginning each method with 'test...()'.
@@ -19,7 +19,7 @@ import org.junit.Test;
  * 
  * Please note: While some example test cases may be provided, you must write your own for the class.
  */
-public class ProjectTest
+public class Module04Test
 {
 	// setup methods
 	

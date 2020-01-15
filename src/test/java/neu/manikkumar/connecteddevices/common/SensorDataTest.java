@@ -1,7 +1,7 @@
 /**
  * 
  */
-package schooldomain.studentname.connecteddevices.common;
+package neu.manikkumar.connecteddevices.common;
 
 import org.junit.After;
 import org.junit.Before;
