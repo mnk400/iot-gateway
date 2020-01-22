@@ -7,7 +7,7 @@ public class SystemCpuUtilTask {
 
 	private OperatingSystemMXBean osBean;
 	
-	SystemCpuUtilTask() {
+	public SystemCpuUtilTask() {
 		this.osBean = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();
 	}
 	public float retcpu() {
