@@ -57,7 +57,7 @@ public class Module01Test{
 	public void testSystemCpuUtilTask(){
 		float cpuPer;
 		cpuPer = cpu_test.retcpu();
-		cpuPer = -3;
+
 		assertTrue("CPU load less than 0", cpuPer>=0);
 		assertTrue("CPU load greater than 100", cpuPer<100);	
 	}
