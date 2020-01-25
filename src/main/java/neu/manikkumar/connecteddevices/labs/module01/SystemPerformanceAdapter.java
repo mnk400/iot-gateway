@@ -12,6 +12,7 @@ public class SystemPerformanceAdapter extends Thread {
 	private int loopcount;
 	
 	public SystemPerformanceAdapter(int param,int loop_param) {
+		this.LOGGER.info("Initializing SystemPerformanceAdapter Thread");
 		this.cpu_stats = new SystemCpuUtilTask();	
 		this.mem_stats = new SystemMemUtilTask();
 		this.sleeptime = param*1000;

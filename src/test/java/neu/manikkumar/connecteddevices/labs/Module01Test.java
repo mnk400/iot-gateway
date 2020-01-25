@@ -38,7 +38,7 @@ public class Module01Test{
 	public void setUp() throws Exception{
 		this.mem_test 		= new SystemMemUtilTask();
 		this.cpu_test 		= new SystemCpuUtilTask();
-		this.adapter_test 	= new SystemPerformanceAdapter(2,5);
+		this.adapter_test 	= new SystemPerformanceAdapter(1,1);
 	}
 	
 	/**
