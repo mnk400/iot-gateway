@@ -1,4 +1,4 @@
-# Connected Devices 
+# Gateway
 ![](https://github.com/mnk400/iot-gateway/workflows/Java%20CI/badge.svg)
 
-Java Gateway
+Gateway repository containing Modules and an auto build pipeline a semester course. Java. CSYE6530.

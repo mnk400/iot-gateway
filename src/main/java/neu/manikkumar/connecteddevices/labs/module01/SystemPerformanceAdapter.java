@@ -7,10 +7,16 @@ public class SystemPerformanceAdapter extends Thread {
 	
 	private SystemCpuUtilTask cpu_stats;
 	private SystemMemUtilTask mem_stats;
+	private boolean run_sucess = false; 
 	
-	private int sleeptime;
-	private int loopcount;
+	private int sleeptime = 2;
+	private int loopcount = 10;
+
+	public boolean enableSystemPerformanceAdapter = false;
 	
+	public boolean checkSuccess(){
+		return this.run_sucess;
+	}
 	public SystemPerformanceAdapter(int param,int loop_param) {
 		this.LOGGER.info("Initializing SystemPerformanceAdapter Thread");
 		this.cpu_stats = new SystemCpuUtilTask();	
@@ -24,20 +30,25 @@ public class SystemPerformanceAdapter extends Thread {
 		int i=0;
 		float cpu_val;
 		float mem_val;
-		while(i < loopcount) {
-			i++;
-			cpu_val = cpu_stats.retcpu();
-			mem_val = mem_stats.retmem();
+		if( this.enableSystemPerformanceAdapter == true ){
+			while(i < loopcount) {
+				i++;
+				cpu_val = cpu_stats.retcpu();
+				mem_val = mem_stats.retmem();
 			
-			LOGGER.info("CPU Average Load:" + cpu_val);
-			LOGGER.info("Heap Memory:" + mem_val);
-			try {
-				Thread.sleep(sleeptime);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				LOGGER.info("CPU Average Load:" + cpu_val);
+				LOGGER.info("Heap Memory:" + mem_val);
+				try {
+					Thread.sleep(sleeptime);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
-			
+			this.run_sucess = true;
+		}
+		else {
+			this.run_sucess = false;
 		}
 	}
 }

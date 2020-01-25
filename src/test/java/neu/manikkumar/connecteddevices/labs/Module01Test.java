@@ -39,6 +39,7 @@ public class Module01Test{
 		this.mem_test 		= new SystemMemUtilTask();
 		this.cpu_test 		= new SystemCpuUtilTask();
 		this.adapter_test 	= new SystemPerformanceAdapter(1,1);
+
 	}
 	
 	/**
@@ -50,9 +51,6 @@ public class Module01Test{
 	
 	// test methods
 	
-	/**
-	 * 
-	 */
 	@Test
 	public void testSystemCpuUtilTask(){
 		float cpuPer;
@@ -75,8 +73,12 @@ public class Module01Test{
 	public void testSystemPerformanceAdapter() {
 		try {
 			adapter_test.run();
+			assertTrue("True when expected False", adapter_test.checkSuccess() == false);
+			adapter_test.enableSystemPerformanceAdapter = true;
+			adapter_test.run();
+			assertTrue("False when expected True", adapter_test.checkSuccess() == true);
 		} catch (Exception e) {
-			System.out.println("Adapter threw an exception");
+			System.out.println("Adapter threw an exception" + e);
 		}
 	}
 	
