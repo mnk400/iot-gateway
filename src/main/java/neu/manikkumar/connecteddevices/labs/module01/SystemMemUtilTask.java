@@ -7,13 +7,26 @@ import java.lang.management.MemoryUsage;
 
 public class SystemMemUtilTask {
 
+	MemoryMXBean memBean;
+	MemoryUsage heap;
+	MemoryUsage nonheap;
+	
+	/**
+	 * Constructor 
+	 */
+	public SystemMemUtilTask() {
+		memBean 	= ManagementFactory.getMemoryMXBean();
+		heap 		= memBean.getHeapMemoryUsage();
+		nonheap		= memBean.getNonHeapMemoryUsage();
+	}
+	/**
+	 * Method which can return currently used heap and nonheap memory 
+	 */
 	public float retmem() {
-		MemoryMXBean memBean 	= ManagementFactory.getMemoryMXBean();
-		MemoryUsage heap 		= memBean.getHeapMemoryUsage();
-		MemoryUsage nonheap		= memBean.getNonHeapMemoryUsage();
-		
-		double heapUtil = ((double) heap.getUsed() / heap.getMax()) * 100;
-		double nonheapUtil = ((double) nonheap.getUsed() / nonheap.getMax()) * 100;
+	
+		double heapUtil = ((double) this.heap.getUsed() / this.heap.getMax()) * 100;
+		System.out.println(heapUtil);
+		double nonheapUtil = ((double) this.nonheap.getUsed() / this.nonheap.getMax()) * 100;
 		
 		if (nonheapUtil < 0) {
 			nonheapUtil = 0.0;

@@ -14,9 +14,16 @@ public class SystemPerformanceAdapter extends Thread {
 
 	public boolean enableSystemPerformanceAdapter = false;
 	
+	/**
+	 * Getter method to return a success var which is only set if the thread ran
+	 */
 	public boolean checkSuccess(){
 		return this.run_sucess;
 	}
+
+	/**
+	 * Constructor
+	 */
 	public SystemPerformanceAdapter(int param,int loop_param) {
 		this.LOGGER.info("Initializing SystemPerformanceAdapter Thread");
 		this.cpu_stats = new SystemCpuUtilTask();	
@@ -26,6 +33,9 @@ public class SystemPerformanceAdapter extends Thread {
 		
 	}
 
+	/**
+	 * Run method which runs the thread, retrieves the values from the UtilTasks and logs them
+	 */
 	public void run() {
 		int i=0;
 		float cpu_val;
@@ -41,7 +51,6 @@ public class SystemPerformanceAdapter extends Thread {
 				try {
 					Thread.sleep(sleeptime);
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
