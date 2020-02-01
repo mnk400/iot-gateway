@@ -12,7 +12,10 @@ import javax.mail.internet.MimeMessage;
 import neu.manikkumar.connecteddevices.common.ConfigUtil;
 
 public class SmtpClientConnector{
-    
+    /*
+     *this class this responsible for creating a MIMEmessage
+     *and then using SMTP to send that MIME message as an email
+     */
     private final static Logger LOGGER = Logger.getLogger("SMTPLogger");            //Retrieving a logging instance
     public ConfigUtil configReader;                                                 //ConfigRead object to read configuration data from
     private String toAddr;                                                          //TO Address
