@@ -86,7 +86,9 @@ public class Module02Test
 
 	@Test
 	public void testSendNotification(){
-		assertEquals(true, EmulatorTest.sendNotification("testSendNotification from TempSensorEmulatorTask.java"));
+		if(EmulatorTest.smtp.configReader.configFileLoaded == true){
+			assertEquals(true, EmulatorTest.sendNotification("testSendNotification from TempSensorEmulatorTask.java"));
+		}
 	}  
 
 	@Test

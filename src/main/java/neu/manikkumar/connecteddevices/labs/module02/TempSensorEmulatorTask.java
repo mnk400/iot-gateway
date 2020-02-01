@@ -10,7 +10,7 @@ public class TempSensorEmulatorTask{
     private final static int threshold = 5;
     private final static String topic = "IOT - gateway";
 
-    private SmtpClientConnector smtp;
+    public SmtpClientConnector smtp;
 
     private SensorData sensor;
     public TempSensorEmulatorTask() {

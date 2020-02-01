@@ -61,6 +61,7 @@ public class SmtpClientConnector{
             transport.sendMessage(message, message.getAllRecipients());
         } catch (MessagingException mex) {
                 mex.printStackTrace();
+                return false;
         }           
 
     return true;   
