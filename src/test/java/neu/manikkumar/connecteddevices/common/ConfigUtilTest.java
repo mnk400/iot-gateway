@@ -13,7 +13,7 @@ import org.junit.Test;
 public class ConfigUtilTest
 {
 	// static
-	public static final String TEST_PIPELINE_CFG_FILE   = "config/ConnectedDevicesConfig.props";
+	public static final String TEST_PIPELINE_CFG_FILE   = "sample/ConnectedDevicesConfig_NO_EDIT_TEMPLATE_ONLY.props";
 	
 	ConfigUtil configTest;
 	
