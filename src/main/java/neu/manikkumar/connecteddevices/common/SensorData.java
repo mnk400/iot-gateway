@@ -1,4 +1,4 @@
-package neu.manikkumar.connecteddevices.labs.common;
+package neu.manikkumar.connecteddevices.common;
 
 import java.util.Date;
 import java.sql.Timestamp;
@@ -8,21 +8,26 @@ public class SensorData{
     private float currentValue = 0.0f;
     private int totalCount     = 0;
     private float totalValue   = 0.0f;
-    private float maxValue     = 99.99f;
-    private float minValue     = 0.0f;
+    private float maxValue     = 0.0f;
+    private float minValue     = 99;
     private String timestamp;
-    private String name;
+    private String name = "Not Set";
 
     public SensorData() {
     }
 
-    public void addValue(float newVal) {
-        this.totalValue   = this.totalValue + newVal;
-        this.currentValue = newVal;
-        this.totalCount++;
-        this.timestamp = String.valueOf(new Timestamp(new Date().getTime()));
-        if (newVal > this.maxValue) { this.maxValue = newVal;}
-        if (newVal < this.minValue) { this.minValue = newVal;}
+    public boolean addValue(float newVal) {
+        try {
+            this.totalValue   = this.totalValue + newVal;
+            this.currentValue = newVal;
+            this.totalCount++;
+            this.timestamp = String.valueOf(new Timestamp(new Date().getTime()));
+            if (newVal > this.maxValue) { this.maxValue = newVal;}
+            if (newVal < this.minValue) { this.minValue = newVal;}
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
     
     public float getCurrentValue() {

@@ -10,7 +10,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import neu.manikkumar.connecteddevices.labs.common.ConfigUtil;
+import neu.manikkumar.connecteddevices.common.ConfigUtil;
 
 public class SmtpClientConnector{
     

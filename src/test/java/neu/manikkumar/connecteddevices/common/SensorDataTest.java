@@ -3,6 +3,8 @@
  */
 package neu.manikkumar.connecteddevices.common;
 
+import static org.junit.Assert.*;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,13 +24,14 @@ import org.junit.Test;
 public class SensorDataTest
 {
 	// setup methods
-	
+	SensorData SensorDataTests;
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception
 	{
+		SensorDataTests = new SensorData();
 	}
 	
 	/**
@@ -42,9 +45,60 @@ public class SensorDataTest
 	// test methods
 	
 	@Test
-	public void testSomething()
-	{
-//		fail("Not yet implemented");
+	public void testAddValue(){
+		assertEquals(true, this.SensorDataTests.addValue(6.0f));
+	}
+
+	@Test
+	public void testGetAverageValue(){
+		this.SensorDataTests.addValue(6.0f);
+		this.SensorDataTests.addValue(10.3f);
+		this.SensorDataTests.addValue(3.2f);
+		assertEquals(6.5f,this.SensorDataTests.getAverageValue(),0.0f);
+
+	}
+
+	@Test
+	public void testGetCount(){
+		this.SensorDataTests.addValue(6.0f);
+		this.SensorDataTests.addValue(10.3f);
+		assertEquals(2,this.SensorDataTests.getTotal());
+	}
+
+	@Test
+	public void testGetCurrentValue(){
+		this.SensorDataTests.addValue(6.0f);
+	 	this.SensorDataTests.addValue(10.3f);
+		assertEquals(10.3f,this.SensorDataTests.getCurrentValue(),0.0f);
+	}
+
+	@Test
+	public void testGetMaxValue(){
+		this.SensorDataTests.addValue(6.0f);
+		this.SensorDataTests.addValue(10.3f);
+		assertEquals(10.3f,this.SensorDataTests.getMaxValue(),0.0f);
+	}
+
+	@Test
+	public void testGetMinValue(){
+		this.SensorDataTests.addValue(6.0f);
+		this.SensorDataTests.addValue(0);
+		this.SensorDataTests.addValue(8.8f);
+		assertEquals(0,this.SensorDataTests.getMinValue(),0.0f);
+	}
+
+	@Test
+	public void testGetName(){
+		assertEquals("Not Set", this.SensorDataTests.getName());
+		this.SensorDataTests.setName("TESTNAME");
+		assertEquals("TESTNAME", this.SensorDataTests.getName());
+	}
+	
+	@Test
+	public void testSetName(){
+		this.SensorDataTests.setName("TESTNAME");
+		assertEquals("TESTNAME", this.SensorDataTests.getName());
+
 	}
 	
 }

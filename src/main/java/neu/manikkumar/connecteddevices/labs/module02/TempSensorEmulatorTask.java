@@ -1,7 +1,7 @@
 package neu.manikkumar.connecteddevices.labs.module02;
 
 import java.util.logging.Logger;
-import neu.manikkumar.connecteddevices.labs.common.SensorData;
+import neu.manikkumar.connecteddevices.common.SensorData;
 
 public class TempSensorEmulatorTask{
     private final static Logger LOGGER = Logger.getLogger("ConfigUtilLogger");

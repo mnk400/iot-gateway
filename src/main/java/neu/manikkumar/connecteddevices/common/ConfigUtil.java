@@ -1,4 +1,4 @@
-package neu.manikkumar.connecteddevices.labs.common;
+package neu.manikkumar.connecteddevices.common;
 
 import java.io.File;
 import java.util.Iterator;
@@ -12,6 +12,7 @@ public class ConfigUtil{
     private boolean configFileLoaded = false;
     private HierarchicalINIConfiguration parser;
     private String configFile;
+    private String strRead;
 
     public ConfigUtil() {
         this.configFile = defaultConfigPath;
@@ -22,11 +23,42 @@ public class ConfigUtil{
 		}
     }
 
-    public String getValue(String section, String key) {
+    public ConfigUtil(String testValidCfgFile) {
+        this.configFile = testValidCfgFile;
+        try {
+			this.loadConfigData();
+		} catch (ConfigurationException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public String getValue(String section, String key) {
         if (this.configFileLoaded = true){        
-            String strRead = String.valueOf(this.parser.getSection(section).getString(key));
-            if ( strRead != null) {
-                return strRead;
+            this.strRead = String.valueOf(this.parser.getSection(section).getString(key));
+            if ( this.strRead != null) {
+                return this.strRead;
+            }
+            else {
+                this.strRead = null;
+                LOGGER.info("Invalid Key/Value par");
+                return this.strRead;
+            }
+        }
+        else{
+            LOGGER.info("File not loaded");
+            return this.strRead;
+        }    
+    }
+
+    public Integer getIntegerValue(String section, String key) {
+        if (this.configFileLoaded = true){        
+            this.strRead = String.valueOf(this.parser.getSection(section).getString(key));
+            if ( this.strRead != null) {
+                try {
+                    return Integer.parseInt(strRead);
+                } catch (Exception e) {
+                    return null;
+                }
             }
             else {
                 LOGGER.info("Invalid Key/Value par");
@@ -36,41 +68,31 @@ public class ConfigUtil{
         else{
             LOGGER.info("File not loaded");
             return null;
-        }    
-    }
-
-    public int getIntegerValue(String section, String key) {
-        if (this.configFileLoaded = true){        
-            String strRead = String.valueOf(this.parser.getSection(section).getString(key));
-            if ( strRead != null) {
-                return Integer.parseInt(strRead);
-            }
-            else {
-                LOGGER.info("Invalid Key/Value par");
-                return 0;
-            }
-        }
-        else{
-            LOGGER.info("File not loaded");
-            return 0;
         }
     }
 
-    public boolean getBooleanValue(String section, String key) {
+    public Boolean getBooleanValue(String section, String key) {
         if (this.configFileLoaded = true){        
-            String strRead = String.valueOf(this.parser.getSection(section).getString(key));
-            if (strRead != null) {
-                if (strRead == "True") {return true;}
-                else {return false;}
+            this.strRead = String.valueOf(this.parser.getSection(section).getString(key));
+            if (this.strRead != null) {
+                if (strRead.equals("True")) {
+                    return true;
+                }
+                else if (strRead.equals("Fase")){
+                    return false;
+                }     
+                else {
+                    return null;
+                }
             }   
             else {
                 LOGGER.info("Invalid Key/Value par");
-                return false;
+                return null;
             }
         }
         else{
             LOGGER.info("File not loaded");
-            return false;
+            return null;
         }
     }
 
@@ -99,8 +121,10 @@ public class ConfigUtil{
         if (configFile.exists()){
             this.parser = new HierarchicalINIConfiguration(this.configFile);
             this.configFileLoaded = true;
+            LOGGER.info("Config File loaded");
             return true;
         }
+        LOGGER.info("Config File could not be loaded");
         return false;
     }
 
