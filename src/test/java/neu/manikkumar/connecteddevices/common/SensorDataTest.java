@@ -9,20 +9,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * Test class for SensorData functionality.
- * 
- * Instructions:
- * 1) Rename 'testSomething()' method such that 'Something' is specific to your needs; add others as needed, beginning each method with 'test...()'.
- * 2) Add the '@Test' annotation to each new 'test...()' method you add.
- * 3) Import the relevant modules and classes to support your tests.
- * 4) Run this class as unit test app.
- * 5) Include a screen shot of the report when you submit your assignment.
- * 
- * Please note: While some example test cases may be provided, you must write your own for the class.
- */
-public class SensorDataTest
-{
+
+public class SensorDataTest{
+	/**
+     * Test class for SensorData functionality.
+     */
+
 	// setup methods
 	SensorData SensorDataTests;
 	/**
@@ -31,6 +23,7 @@ public class SensorDataTest
 	@Before
 	public void setUp() throws Exception
 	{
+		//get a sensorData instance
 		SensorDataTests = new SensorData();
 	}
 	
@@ -42,60 +35,90 @@ public class SensorDataTest
 	{
 	}
 	
-	// test methods
-	
+	/**
+	 * Testing the addValue method
+	 */
 	@Test
 	public void testAddValue(){
+		//Checking if a float value could be added
 		assertEquals(true, this.SensorDataTests.addValue(6.0f));
 	}
 
+	/**
+	 * Testing the getAverageValue method
+	 */
 	@Test
 	public void testGetAverageValue(){
+		//Checking if a float value could be added
 		this.SensorDataTests.addValue(6.0f);
 		this.SensorDataTests.addValue(10.3f);
 		this.SensorDataTests.addValue(3.2f);
+		//Checking if it returns the correct averageValue
 		assertEquals(6.5f,this.SensorDataTests.getAverageValue(),0.0f);
 
 	}
-
+	/**
+	 * Testing the getCount method
+	 */
 	@Test
 	public void testGetCount(){
+		//Checking if a series of float value could be added
 		this.SensorDataTests.addValue(6.0f);
 		this.SensorDataTests.addValue(10.3f);
+		//Checking if it returns the correct count
 		assertEquals(2,this.SensorDataTests.getTotal());
 	}
-
+	/**
+	 * Testing the getCurrentValue method
+	 */
 	@Test
 	public void testGetCurrentValue(){
-		this.SensorDataTests.addValue(6.0f);
-	 	this.SensorDataTests.addValue(10.3f);
-		assertEquals(10.3f,this.SensorDataTests.getCurrentValue(),0.0f);
-	}
-
-	@Test
-	public void testGetMaxValue(){
+		//Checking if a series of float value could be added
 		this.SensorDataTests.addValue(6.0f);
 		this.SensorDataTests.addValue(10.3f);
+		//Checking if it returns the correct CurrentValue
+		assertEquals(10.3f,this.SensorDataTests.getCurrentValue(),0.0f);
+	}
+	/**
+	 * Testing the getGetMaxValue method
+	 */
+	@Test
+	public void testGetMaxValue(){
+		//Checking if a series of float value could be added
+		this.SensorDataTests.addValue(6.0f);
+		this.SensorDataTests.addValue(10.3f);
+		//Checking if it returns the correct MaxValue
 		assertEquals(10.3f,this.SensorDataTests.getMaxValue(),0.0f);
 	}
-
+	/**
+	 * Testing the getGetMinValue method
+	 */
 	@Test
 	public void testGetMinValue(){
+		//Checking if a series of float value could be added
 		this.SensorDataTests.addValue(6.0f);
 		this.SensorDataTests.addValue(0);
 		this.SensorDataTests.addValue(8.8f);
+		//Checking if it returns the correct MinValue
 		assertEquals(0,this.SensorDataTests.getMinValue(),0.0f);
 	}
-
+	/**
+	 * Testing the getName method
+	 */
 	@Test
 	public void testGetName(){
+		//Checking the getName returns the correct name
 		assertEquals("Not Set", this.SensorDataTests.getName());
 		this.SensorDataTests.setName("TESTNAME");
+		//Checking the getName returns the correct name after setting a new name
 		assertEquals("TESTNAME", this.SensorDataTests.getName());
 	}
-	
+	/**
+	 * Testing the setName method
+	 */
 	@Test
 	public void testSetName(){
+		//Checking the gettName returns the correct name after setting a new name using setNam
 		this.SensorDataTests.setName("TESTNAME");
 		assertEquals("TESTNAME", this.SensorDataTests.getName());
 
