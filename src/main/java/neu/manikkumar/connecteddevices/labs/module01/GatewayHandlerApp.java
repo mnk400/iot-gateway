@@ -2,7 +2,6 @@ package neu.manikkumar.connecteddevices.labs.module01;
 
 import neu.manikkumar.connecteddevices.labs.module02.TempEmulatorAdapter;
 
-
 public class GatewayHandlerApp {
 
 	public static void main(String[] args) throws Exception {

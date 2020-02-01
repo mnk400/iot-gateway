@@ -4,7 +4,6 @@
 package neu.manikkumar.connecteddevices.labs;
 
 import static org.junit.Assert.assertEquals;
-
 import java.util.logging.Logger;
 import org.apache.commons.configuration.ConfigurationException;
 import org.junit.After;
@@ -74,7 +73,7 @@ public class Module02Test
 			//Only case for the pipeline where the Sample config is loaded
 			this.SmtpTest.configReader = new ConfigUtil(TEST_PIPELINE_CFG_FILE);	
 			this.SmtpTest.configReader.loadConfigData();
-			LOGGER.info("Case Pipeline");
+			LOGGER.info("Case Pipeline: (SMTP should fail)");
 			//should return a false because the pipeline doesn't have correct config data
 			assertEquals(false,this.SmtpTest.sendMail("TestMail", "Test Message"));
 		}

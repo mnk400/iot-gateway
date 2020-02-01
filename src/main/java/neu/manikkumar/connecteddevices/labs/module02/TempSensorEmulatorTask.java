@@ -65,7 +65,7 @@ public class TempSensorEmulatorTask{
          */ 
         String msgString;
         msgString  = "\nTemperature";
-        //msgString += "\n\tTime : " + self.sense_d.timestamp
+        msgString += "\n\tTime : " + String.valueOf(sensor.timestamp);
         msgString += "\n\tCurrent : " + String.valueOf(sensor.getCurrentValue());
         msgString += "\n\tAverage : " + String.valueOf(sensor.getAverageValue());
         msgString += "\n\tSamples : " + String.valueOf(sensor.getTotal());

@@ -16,7 +16,7 @@ public class SensorData{
     private float totalValue   = 0.0f;
     private float maxValue     = 0.0f;
     private float minValue     = 99;
-    private String timestamp;
+    public String timestamp;
     private String name = "Not Set";
 
     public SensorData() {
