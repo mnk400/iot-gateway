@@ -20,8 +20,8 @@ public class SensorData{
         try {
             this.totalValue   = this.totalValue + newVal;
             this.currentValue = newVal;
+            this.timestamp    = String.valueOf(new Timestamp(new Date().getTime()));
             this.totalCount++;
-            this.timestamp = String.valueOf(new Timestamp(new Date().getTime()));
             if (newVal > this.maxValue) { this.maxValue = newVal;}
             if (newVal < this.minValue) { this.minValue = newVal;}
         } catch (Exception e) {

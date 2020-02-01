@@ -14,7 +14,7 @@ import neu.manikkumar.connecteddevices.common.ConfigUtil;
 
 public class SmtpClientConnector{
     
-    private ConfigUtil configReader;
+    public ConfigUtil configReader;
     private String toAddr;
     private String fromAddr;
     private String token;

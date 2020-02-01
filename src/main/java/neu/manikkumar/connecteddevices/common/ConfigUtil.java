@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 public class ConfigUtil{
     private final static Logger LOGGER = Logger.getLogger("ConfigUtilLogger");
     private static String defaultConfigPath = "config/ConnectedDevicesConfig.props";
-    private boolean configFileLoaded = false;
+    public boolean configFileLoaded = false;
     private HierarchicalINIConfiguration parser;
     private String configFile;
     private String strRead;

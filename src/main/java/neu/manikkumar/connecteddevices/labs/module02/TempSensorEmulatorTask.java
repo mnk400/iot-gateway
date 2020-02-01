@@ -27,9 +27,10 @@ public class TempSensorEmulatorTask{
         return true;
     }
 
-    public void sendNotification(String mailMSG) {
+    public boolean sendNotification(String mailMSG) {
         LOGGER.info("Sending Mail");
         this.smtp.sendMail("IOT - Gateway", mailMSG);
+        return true;
     }
     
     public SensorData getSensorData() {
