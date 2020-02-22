@@ -11,13 +11,13 @@ public class SensorData{
 
     //Defining some class variables we'll be using to store our data in
     //and then initializing the variables
-    private float currentValue = 0.0f;
-    private int totalCount     = 0;
-    private float totalValue   = 0.0f;
-    private float maxValue     = 0.0f;
-    private float minValue     = 99;
+    protected float currentValue = 0.0f;
+    protected int totalCount     = 0;
+    protected float totalValue   = 0.0f;
+    protected float maxValue     = 0.0f;
+    protected float minValue     = 99;
     public String timestamp;
-    private String name = "Not Set";
+    protected String name = "Not Set";
 
     public SensorData() {
     }
@@ -92,6 +92,7 @@ public class SensorData{
         this.name = name;
         return true;
     }
- 
-    
+    public String toString(){
+        return "{\"Time\":" +this.timestamp+"{\"Current\":"+this.currentValue+"{\"Average\":"+this.getAverageValue()+"{\"Samples\":"+this.totalCount+"{\"Minimum\":"+this.minValue+"{\"Maximum\":"+this.maxValue+"{\"Name\":\""+this.currentValue+"\"}";
+    }
 }

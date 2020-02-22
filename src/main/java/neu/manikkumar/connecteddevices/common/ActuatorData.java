@@ -5,11 +5,11 @@ package neu.manikkumar.connecteddevices.common;
  */
 public class ActuatorData {
 
-     private String command;
-     private String name;
-     private Object value;
+     protected String command;
+     protected String name;
+     protected Object value;
 
-     ActuatorData(){
+     public ActuatorData(){
         /*
          * Constructor
          * Initialize the variables as 'Not Set' and 0.0.

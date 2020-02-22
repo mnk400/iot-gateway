@@ -18,7 +18,7 @@ public class GatewayHandlerApp {
 		* enableTempEmulatorAdapter should be enabled for the thread to be run
 		*/
 		TempEmulatorAdapter tempAdapter = new TempEmulatorAdapter(2,10);
-		TempEmulatorAdapter.enableTempEmulatorAdapter = true;
+		TempEmulatorAdapter.enableTempEmulatorAdapter = false;
 		tempAdapter.start();
 
 	}
