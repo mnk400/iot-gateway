@@ -16,7 +16,7 @@ public class ActuatorData {
          */
         this.command = "Not Set";
         this.name = "Not Set";
-        this.value = null;
+        this.value = "Not Set";
      }
     
     public String getCommand(){
