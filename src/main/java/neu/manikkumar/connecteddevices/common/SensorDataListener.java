@@ -26,7 +26,7 @@ public class SensorDataListener extends JedisPubSub{
     //PersistenceUtil instance
     public PersistenceUtil pUtil;
     public ActuatorData actuatorData;
-
+    public boolean connected = false;
     public SensorDataListener(String host){
         /*
         Constructor
@@ -38,8 +38,10 @@ public class SensorDataListener extends JedisPubSub{
             this.jUtil = new Jedis(host);
             //Selecting the first database
             this.jUtil.select(1);
+            this.connected = true;
         } catch (Exception e) {
             LOGGER.info("Caught an exception with jedis: SensorDataListener");
+            this.connected = false;
         }
 
 

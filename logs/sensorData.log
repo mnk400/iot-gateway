@@ -1,2 +1,0 @@
-Feb 23, 2020 7:31:02 PM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
-INFO: CONVERTED TO SENSORDATA FROM JSON{"currentValue":10.0,"totalCount":1,"totalValue":10.0,"maxValue":10.0,"minValue":10.0,"timestamp":"2020-02-23 19:31:02.349","name":"TestSensor"}

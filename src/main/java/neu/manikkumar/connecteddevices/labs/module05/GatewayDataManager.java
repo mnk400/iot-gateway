@@ -1,4 +1,6 @@
 package neu.manikkumar.connecteddevices.labs.module05;
+import java.util.logging.Logger;
+
 import neu.manikkumar.connecteddevices.common.PersistenceUtil;
 import neu.manikkumar.connecteddevices.common.SensorDataListener;
 
@@ -12,6 +14,7 @@ public class GatewayDataManager {
      * if need be, creates an actuatorData instance 
      * and publish it on database
      */ 
+    private final static Logger LOGGER = Logger.getLogger("ManagerLogger");
     public static boolean sendEmail = false;
     public static boolean enable    = false;
 
@@ -34,9 +37,12 @@ public class GatewayDataManager {
         if(enable == false){
             return false;
         }
-        else{
+        else if(enable == true && this.listener.connected == true && this.persistenceUtil.connected == true){
         //Running the listener, which sends actuatorData instances on the redis
         this.persistenceUtil.registerSensorDataDbmsListener(this.listener);
+        }
+        else{
+            LOGGER.info("Listener did not run");
         }
         return true;
     }
