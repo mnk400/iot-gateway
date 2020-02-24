@@ -56,11 +56,13 @@ public class SensorDataListenerTest {
         /*
         Testing if testCreateAactuatorData creates the correct actuatorData when given some sensorData
         */
-        ActuatorData tempActuatorData = this.listener.createActuatorData(this.sensorData);
-        //Following fields must match between the defined actuatorData and the one we get
-        assertEquals(this.actuatorData.getCommand(),tempActuatorData.getCommand());
-        assertEquals(this.actuatorData.getValue(),tempActuatorData.getValue());
-        assertEquals(this.actuatorData.getName(),tempActuatorData.getName());
+        if(this.listener.pUtil.connected = true){
+            ActuatorData tempActuatorData = this.listener.createActuatorData(this.sensorData);
+            //Following fields must match between the defined actuatorData and the one we get
+            assertEquals(this.actuatorData.getCommand(),tempActuatorData.getCommand());
+            assertEquals(this.actuatorData.getValue(),tempActuatorData.getValue());
+            assertEquals(this.actuatorData.getName(),tempActuatorData.getName());
+        }
     }
 
 }    

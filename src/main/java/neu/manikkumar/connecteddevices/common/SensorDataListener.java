@@ -24,7 +24,7 @@ public class SensorDataListener extends JedisPubSub{
     //Nominal temp
     private float nominal;
     //PersistenceUtil instance
-    private PersistenceUtil pUtil;
+    public PersistenceUtil pUtil;
     public ActuatorData actuatorData;
 
     public SensorDataListener(String host){
@@ -34,9 +34,15 @@ public class SensorDataListener extends JedisPubSub{
         
         //Initializing the instances
         this.dataUtil = new DataUtil();
-        this.jUtil = new Jedis(host);
-        //Selecting the first database
-        this.jUtil.select(1);
+        try {
+            this.jUtil = new Jedis(host);
+            //Selecting the first database
+            this.jUtil.select(1);
+        } catch (Exception e) {
+            LOGGER.info("Caught an exception with jedis: SensorDataListener");
+        }
+
+
         ConfigUtil config = new ConfigUtil();
         this.nominal = config.getIntegerValue("device", "nominalTemp");
         //Initializing PersistenceUtil 

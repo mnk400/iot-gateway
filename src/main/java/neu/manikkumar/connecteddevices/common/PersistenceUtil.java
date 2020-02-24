@@ -4,6 +4,7 @@ import redis.clients.jedis.JedisPubSub;
 import neu.manikkumar.connecteddevices.common.ActuatorDataListener;
 import neu.manikkumar.connecteddevices.common.DataUtil;
 import java.util.UUID;
+import java.util.logging.Logger;
 /**
  * PersistenceUtil
  */
@@ -12,6 +13,8 @@ public class PersistenceUtil {
     /*
      * Classdocs
      */
+    //Logger
+    private final static Logger LOGGER = Logger.getLogger("SensorDataListenerLogger");
     public static final Boolean enableThreads = true;
     //Setting address and port of your redis server
     private static final String redisHost = "squishypi.lan";
@@ -26,17 +29,25 @@ public class PersistenceUtil {
     private Jedis redisActuator;
     private DataUtil dataUtil;
 
+    public boolean connected = false;
     public PersistenceUtil(){
          /*
          Constructor
          */
         //Initializing the jedis variables
-        this.redisSensor   = new Jedis(redisHost, redisPort);
-        this.redisActuator = new Jedis(redisHost, redisPort);
-        this.dataUtil      = new DataUtil();
-        //Selecting their respective databases
-        this.redisActuator.select(0);
-        this.redisSensor.select(1);
+        try {
+          this.redisSensor   = new Jedis(redisHost, redisPort);
+          this.redisActuator = new Jedis(redisHost, redisPort);
+          //Selecting their respective databases
+          this.redisActuator.select(0);
+          this.redisSensor.select(1);
+          this.connected = true;
+        } catch (Exception e) {
+          LOGGER.info("Caught an exception with jedis: pUtil");
+          this.connected = false;
+        }
+
+        this.dataUtil = new DataUtil(); 
      }
      
      public void registerActuatorDataDbmsListener(ActuatorDataListener listener){
@@ -73,29 +84,38 @@ public class PersistenceUtil {
          /*
           Write sensorData to redis
         */
-         //Converting the sensorData instance to JSON
-         String jsonStr = this.dataUtil.toJsonFromSensorData(sensorData);
-         //Generating a UUID and converting into a UUID string
-         UUID uuid = UUID.randomUUID();
-         String keyStr = "sensorData-" + uuid.toString();  
-         //Writing the data on the database
-         this.redisSensor.set(keyStr, jsonStr);
+        try {
+          //Converting the sensorData instance to JSON
+          String jsonStr = this.dataUtil.toJsonFromSensorData(sensorData);
+          //Generating a UUID and converting into a UUID string
+          UUID uuid = UUID.randomUUID();
+          String keyStr = "sensorData-" + uuid.toString();  
+          //Writing the data on the database
+          this.redisSensor.set(keyStr, jsonStr);
 
-         return true;
+          return true;
+        } catch (Exception e) {
+          return false;
+        }
      }
 
      public boolean writeActuatorDataDbmsListener(ActuatorData actuatorData){
          /*
           Write actuatorData to redis
          */
-         //Converting the actuatorData instance to JSON
-         String jsonStr = this.dataUtil.toJsonFromActuatorData(actuatorData);
-         //Generating a UUID and converting into a UUID string
-         UUID uuid = UUID.randomUUID();
-         String keyStr = "actuatorData-" + uuid.toString();  
-         //Writing the data on the database
-         this.redisActuator.set(keyStr, jsonStr);
+        try {
+          //Converting the actuatorData instance to JSON
+          String jsonStr = this.dataUtil.toJsonFromActuatorData(actuatorData);
+          //Generating a UUID and converting into a UUID string
+          UUID uuid = UUID.randomUUID();
+          String keyStr = "actuatorData-" + uuid.toString();  
+          //Writing the data on the database
+          this.redisActuator.set(keyStr, jsonStr);
 
-         return true;
+          return true;
+        } catch (Exception e) {
+          return false;
+        }
+         
      }
 }

@@ -5,7 +5,6 @@ import neu.manikkumar.connecteddevices.common.ActuatorData;
 import neu.manikkumar.connecteddevices.common.SensorData;
 
 import static org.junit.Assert.assertEquals;
-import java.io.*; 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -46,14 +45,6 @@ public class PersistenceUtilTest {
 		this.sensorData = new SensorData();
 		this.sensorData.setName("TestSensor");
         this.sensorData.addValue(10);
-        //Setting a variable to avoid running in pipeline based on if config exists of not
-        File f = new File("config/ConnectedDevicesConfig.props");
-        if(f.exists()){
-            this.pipeAvoid = false;
-        }
-        else{
-            this.pipeAvoid = true;
-        }
 	}
 	
 	/**
@@ -75,8 +66,11 @@ public class PersistenceUtilTest {
         */    
         //Should return a True if works
         //Only accepts an actuatorData instance
-        if (this.pipeAvoid == false){
-        assertEquals(true, pUtil.writeActuatorDataDbmsListener(this.actuatorData));
+        if (this.pUtil.connected == true){
+            assertEquals(true, pUtil.writeActuatorDataDbmsListener(this.actuatorData));
+        }
+        else if (this.pUtil.connected == false){
+            assertEquals(false, pUtil.writeActuatorDataDbmsListener(this.actuatorData));
         }
     }
 
@@ -88,8 +82,11 @@ public class PersistenceUtilTest {
         */    
         //Should return a True if works
         //Only accepts a sensorData instance
-        if (this.pipeAvoid == false){
-        assertEquals(true, pUtil.writeSensorDataDbmsListener(this.sensorData));
+        if (this.pUtil.connected == true){
+            assertEquals(true, pUtil.writeSensorDataDbmsListener(this.sensorData));
+        } 
+        else if (this.pUtil.connected == false){
+            assertEquals(false, pUtil.writeSensorDataDbmsListener(this.sensorData));
         } 
     }
     
