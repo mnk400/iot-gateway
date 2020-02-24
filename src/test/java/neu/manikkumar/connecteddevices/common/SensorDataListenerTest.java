@@ -56,7 +56,7 @@ public class SensorDataListenerTest {
         /*
         Testing if testCreateAactuatorData creates the correct actuatorData when given some sensorData
         */
-        if(this.listener.connected= true){
+        if(this.listener.connected= true && this.listener.config.configFileLoaded == true){
             ActuatorData tempActuatorData = this.listener.createActuatorData(this.sensorData);
             //Following fields must match between the defined actuatorData and the one we get
             assertEquals(this.actuatorData.getCommand(),tempActuatorData.getCommand());

@@ -27,6 +27,7 @@ public class SensorDataListener extends JedisPubSub{
     public PersistenceUtil pUtil;
     public ActuatorData actuatorData;
     public boolean connected = false;
+    public ConfigUtil config;
     public SensorDataListener(String host){
         /*
         Constructor
@@ -45,7 +46,7 @@ public class SensorDataListener extends JedisPubSub{
         }
 
 
-        ConfigUtil config = new ConfigUtil();
+        this.config = new ConfigUtil();
         this.nominal = config.getIntegerValue("device", "nominalTemp");
         //Initializing PersistenceUtil 
         this.pUtil = new PersistenceUtil();

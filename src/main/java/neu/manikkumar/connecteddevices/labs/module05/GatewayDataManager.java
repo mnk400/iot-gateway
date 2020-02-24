@@ -18,8 +18,8 @@ public class GatewayDataManager {
     public static boolean sendEmail = false;
     public static boolean enable    = false;
 
-    private PersistenceUtil persistenceUtil;
-    private SensorDataListener listener;
+    public PersistenceUtil persistenceUtil;
+    public SensorDataListener listener;
     public GatewayDataManager(){
         /*
         Constructor

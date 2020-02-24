@@ -4,7 +4,7 @@
 package neu.manikkumar.connecteddevices.labs;
 
 import static org.junit.Assert.assertEquals;
-
+ 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -48,9 +48,11 @@ public class Module05Test
 		/*
         Testing if the run function runs as intended 
 		*/
-		this.dataManager.enable = false;
-		//This should return a false
-		assertEquals(false, this.dataManager.run());
+		if(this.dataManager.listener.config.configFileLoaded = true){
+			this.dataManager.enable = false;
+			//This should return a false
+			assertEquals(false, this.dataManager.run());
+		}
 	}
 	
 }
