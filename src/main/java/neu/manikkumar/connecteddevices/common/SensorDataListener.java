@@ -45,7 +45,6 @@ public class SensorDataListener extends JedisPubSub{
             this.connected = false;
         }
 
-
         this.config = new ConfigUtil();
         this.nominal = config.getIntegerValue("device", "nominalTemp");
         //Initializing PersistenceUtil 

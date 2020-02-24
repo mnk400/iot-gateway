@@ -13,6 +13,7 @@ public class ConfigUtil{
      */
     private final static Logger LOGGER = Logger.getLogger("ConfigUtilLogger");                   // A logger object
     private static String defaultConfigPath = "config/ConnectedDevicesConfig.props";             // Static string defining the default path to the configuration file
+    private static String sampleConfig = "sample/ConnectedDevicesConfig_NO_EDIT_TEMPLATE_ONLY.props";
     public boolean configFileLoaded = false;                                                     // Public variable to check if the configuration file has been loaded
     private HierarchicalINIConfiguration parser;                                                 // The parses object responsible for reading from the file
     private String configFile;                                                                   // path to the the configuration path
@@ -192,7 +193,8 @@ public class ConfigUtil{
             return true;
         }
         // Returning a false if the file doesn't exists and logging the event
-        LOGGER.info("Config File could not be loaded");
+        this.parser = new HierarchicalINIConfiguration(this.sampleConfig);
+        LOGGER.info("Config File could not be loaded, loading sampleConfig");
         return false;
     }
 

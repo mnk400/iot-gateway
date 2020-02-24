@@ -48,11 +48,9 @@ public class Module05Test
 		/*
         Testing if the run function runs as intended 
 		*/
-		if(this.dataManager.listener.config.configFileLoaded = true){
-			this.dataManager.enable = false;
-			//This should return a false
-			assertEquals(false, this.dataManager.run());
-		}
+		this.dataManager.enable = false;
+		//This should return a false
+		assertEquals(false, this.dataManager.run());
 	}
 	
 }
