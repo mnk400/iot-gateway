@@ -12,7 +12,7 @@ public class PersistenceUtil {
     /*
      * Classdocs
      */
-
+    public static final Boolean enableThreads = true;
     //Setting address and port of your redis server
     private static final String redisHost = "squishypi.lan";
     private static final Integer redisPort = 6379;
@@ -49,7 +49,9 @@ public class PersistenceUtil {
         ListenerRunner threadRunner = new ListenerRunner(listener, this.redisActuator, actuatorChannel);
         //Running the thread
         Thread t1 = new Thread(threadRunner);
-        t1.start();
+        if (enableThreads == true){
+          t1.start();
+        }
      }
 
 	public void registerSensorDataDbmsListener(SensorDataListener listener){
@@ -62,10 +64,12 @@ public class PersistenceUtil {
         ListenerRunner threadRunner = new ListenerRunner(listener, this.redisSensor, sensorChannel);
         //Running the thread
         Thread t1 = new Thread(threadRunner);
-        t1.start();
+        if (enableThreads == true){
+          t1.start();
+        }
      }
 
-     public void writeSensorDataDbmsListener(SensorData sensorData){
+     public boolean writeSensorDataDbmsListener(SensorData sensorData){
          /*
           Write sensorData to redis
         */
@@ -76,9 +80,11 @@ public class PersistenceUtil {
          String keyStr = "sensorData-" + uuid.toString();  
          //Writing the data on the database
          this.redisSensor.set(keyStr, jsonStr);
+
+         return true;
      }
 
-     public void writeActuatorDataDbmsListener(ActuatorData actuatorData){
+     public boolean writeActuatorDataDbmsListener(ActuatorData actuatorData){
          /*
           Write actuatorData to redis
          */
@@ -89,5 +95,7 @@ public class PersistenceUtil {
          String keyStr = "actuatorData-" + uuid.toString();  
          //Writing the data on the database
          this.redisActuator.set(keyStr, jsonStr);
+
+         return true;
      }
 }

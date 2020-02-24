@@ -10,24 +10,28 @@ import neu.manikkumar.connecteddevices.common.ConfigUtil;
 public class SensorDataListener extends JedisPubSub{
 
     /*
-     * Listener class which listens for SensorData Instance and then acts when data is received
+     * Listener class which extends JedisPubSub and creates overridden callback methods
+     * and listens for SensorData Instance and then acts when data is received
      */
     //Logger
     private final static Logger LOGGER = Logger.getLogger("SensorDataListenerLogger");
     //DataUtil and a Jedis instance
-    DataUtil dataUtil;
-    Jedis jUtil;
+    private DataUtil dataUtil;
+    private Jedis jUtil;
     //Variables to decide weather to create new actuatorData or not
-    float wOld = -99.99f;
-    float wNew = 0.00f;
+    private float wOld = -99.99f;
+    private float wNew = 0.00f;
     //Nominal temp
-    float nominal;
+    private float nominal;
     //PersistenceUtil instance
-    PersistenceUtil pUtil;
+    private PersistenceUtil pUtil;
+    public ActuatorData actuatorData;
+
     public SensorDataListener(String host){
         /*
         Constructor
         */
+        
         //Initializing the instances
         this.dataUtil = new DataUtil();
         this.jUtil = new Jedis(host);
@@ -37,6 +41,7 @@ public class SensorDataListener extends JedisPubSub{
         this.nominal = config.getIntegerValue("device", "nominalTemp");
         //Initializing PersistenceUtil 
         this.pUtil = new PersistenceUtil();
+        this.actuatorData = new ActuatorData();
     }
 
     @Override
@@ -48,7 +53,7 @@ public class SensorDataListener extends JedisPubSub{
     @Override
     public void onPMessage(String pattern, String channel, String message) {
         /*
-        callback function for SensorData, which acts when a new key is added to the database
+        Overriden callback function for SensorData, which acts when a new key is added to the database
         */
 
         //Logging when JSON received
@@ -72,17 +77,20 @@ public class SensorDataListener extends JedisPubSub{
         */
         LOGGER.info("Creating actuatorData from sensorData");
         Float s = sensorData.getCurrentValue();
-        ActuatorData actuatorData = new ActuatorData();
+        
         actuatorData.setName(sensorData.getName());
         if(s < this.nominal - 3){
+            //If less then nominal Increase temp
             actuatorData.setCommand("Increase");
             actuatorData.setValue("UPARROW");
         }
         else if(s > this.nominal + 3){
+            //If greater then nominal then Decrease temp
             actuatorData.setCommand("Decrease");
             actuatorData.setValue("DOWNARROW");
         }
         else if(s< this.nominal -3 && s>this.nominal+3){
+            //If nominal then keep it stable
             actuatorData.setCommand("Stable");
             actuatorData.setValue("TICK");
         }

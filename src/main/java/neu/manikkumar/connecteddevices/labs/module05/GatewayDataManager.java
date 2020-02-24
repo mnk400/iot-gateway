@@ -30,10 +30,12 @@ public class GatewayDataManager {
         Method responsible for running PersistenceUtil
         and the listener
         */
+        //return false if enable is false
         if(enable == false){
             return false;
         }
         else{
+        //Running the listener, which sends actuatorData instances on the redis
         this.persistenceUtil.registerSensorDataDbmsListener(this.listener);
         }
         return true;

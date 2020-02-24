@@ -3,22 +3,13 @@
  */
 package neu.manikkumar.connecteddevices.labs;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * Test class for all requisite Module05 functionality.
- * 
- * Instructions:
- * 1) Rename 'testSomething()' method such that 'Something' is specific to your needs; add others as needed, beginning each method with 'test...()'.
- * 2) Add the '@Test' annotation to each new 'test...()' method you add.
- * 3) Import the relevant modules and classes to support your tests.
- * 4) Run this class as unit test app.
- * 5) Include a screen shot of the report when you submit your assignment.
- * 
- * Please note: While some example test cases may be provided, you must write your own for the class.
- */
+import neu.manikkumar.connecteddevices.labs.module05.GatewayDataManager;
 public class Module05Test
 {
 	// setup methods
@@ -26,9 +17,15 @@ public class Module05Test
 	/**
 	 * @throws java.lang.Exception
 	 */
+	GatewayDataManager dataManager;
 	@Before
 	public void setUp() throws Exception
 	{
+		/*
+        Setting up resources
+		*/
+		//Init dataManager
+		this.dataManager = new GatewayDataManager();
 	}
 	
 	/**
@@ -37,17 +34,23 @@ public class Module05Test
 	@After
 	public void tearDown() throws Exception
 	{
+		/*
+        Getting rid of resources
+		*/
+		this.dataManager = null;
 	}
 	
 	// test methods
 	
-	/**
-	 * 
-	 */
 	@Test
-	public void testSomething()
+	public void testRun()
 	{
-//		fail("Not yet implemented");
+		/*
+        Testing if the run function runs as intended 
+		*/
+		this.dataManager.enable = false;
+		//This should return a false
+		assertEquals(false, this.dataManager.run());
 	}
 	
 }
