@@ -1,0 +1,76 @@
+Feb 23, 2020 11:40:21 PM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.19301223754883, "totalCount": 6.0, "totalValue": 264.70516204833984, "maxValue": 44.00429916381836, "minValue": 44.19301223754883, "timestamp": "2020-02-23 23:40:21.751682", "name": "Temperature Sensor Data"}
+Feb 23, 2020 11:40:27 PM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.17414093017578, "totalCount": 7.0, "totalValue": 308.8793029785156, "maxValue": 44.00429916381836, "minValue": 44.19301223754883, "timestamp": "2020-02-23 23:40:27.763393", "name": "Temperature Sensor Data"}
+Feb 23, 2020 11:40:33 PM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.00429916381836, "totalCount": 8.0, "totalValue": 352.883602142334, "maxValue": 44.00429916381836, "minValue": 44.19301223754883, "timestamp": "2020-02-23 23:40:33.772418", "name": "Temperature Sensor Data"}
+Feb 23, 2020 11:40:39 PM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.211883544921875, "totalCount": 9.0, "totalValue": 397.09548568725586, "maxValue": 44.00429916381836, "minValue": 44.211883544921875, "timestamp": "2020-02-23 23:40:39.781773", "name": "Temperature Sensor Data"}
+Feb 23, 2020 11:41:26 PM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 43.98542785644531, "totalCount": 1.0, "totalValue": 43.98542785644531, "maxValue": 43.98542785644531, "minValue": 43.98542785644531, "timestamp": "2020-02-23 23:41:26.955349", "name": "Temperature Sensor Data"}
+Feb 23, 2020 11:41:36 PM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.325111389160156, "totalCount": 1.0, "totalValue": 44.325111389160156, "maxValue": 44.325111389160156, "minValue": 44.325111389160156, "timestamp": "2020-02-23 23:41:36.643413", "name": "Temperature Sensor Data"}
+Feb 23, 2020 11:41:42 PM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.306243896484375, "totalCount": 2.0, "totalValue": 88.63135528564453, "maxValue": 44.306243896484375, "minValue": 44.325111389160156, "timestamp": "2020-02-23 23:41:42.656437", "name": "Temperature Sensor Data"}
+Feb 23, 2020 11:41:48 PM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.400596618652344, "totalCount": 3.0, "totalValue": 133.03195190429688, "maxValue": 44.306243896484375, "minValue": 44.400596618652344, "timestamp": "2020-02-23 23:41:48.669189", "name": "Temperature Sensor Data"}
+Feb 23, 2020 11:42:43 PM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.24962615966797, "totalCount": 1.0, "totalValue": 44.24962615966797, "maxValue": 44.24962615966797, "minValue": 44.24962615966797, "timestamp": "2020-02-23 23:42:43.109140", "name": "Temperature Sensor Data"}
+Feb 23, 2020 11:42:49 PM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.23075866699219, "totalCount": 2.0, "totalValue": 88.48038482666016, "maxValue": 44.23075866699219, "minValue": 44.24962615966797, "timestamp": "2020-02-23 23:42:49.123490", "name": "Temperature Sensor Data"}
+Feb 23, 2020 11:44:16 PM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.24962615966797, "totalCount": 1.0, "totalValue": 44.24962615966797, "maxValue": 44.24962615966797, "minValue": 44.24962615966797, "timestamp": "2020-02-23 23:44:16.985763", "name": "Temperature Sensor Data"}
+Feb 23, 2020 11:44:22 PM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.26850128173828, "totalCount": 2.0, "totalValue": 88.51812744140625, "maxValue": 44.24962615966797, "minValue": 44.26850128173828, "timestamp": "2020-02-23 23:44:22.992422", "name": "Temperature Sensor Data"}
+Feb 23, 2020 11:44:29 PM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.400596618652344, "totalCount": 3.0, "totalValue": 132.9187240600586, "maxValue": 44.24962615966797, "minValue": 44.400596618652344, "timestamp": "2020-02-23 23:44:29.004034", "name": "Temperature Sensor Data"}
+Feb 23, 2020 11:45:19 PM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.211883544921875, "totalCount": 1.0, "totalValue": 44.211883544921875, "maxValue": 44.211883544921875, "minValue": 44.211883544921875, "timestamp": "2020-02-23 23:45:19.819744", "name": "Temperature Sensor Data"}
+Feb 23, 2020 11:45:25 PM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.28736877441406, "totalCount": 2.0, "totalValue": 88.49925231933594, "maxValue": 44.211883544921875, "minValue": 44.28736877441406, "timestamp": "2020-02-23 23:45:25.831974", "name": "Temperature Sensor Data"}
+Feb 23, 2020 11:45:31 PM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.17414093017578, "totalCount": 3.0, "totalValue": 132.67339324951172, "maxValue": 44.17414093017578, "minValue": 44.28736877441406, "timestamp": "2020-02-23 23:45:31.844752", "name": "Temperature Sensor Data"}
+Feb 24, 2020 12:55:47 AM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 10.0, "totalCount": 1.0, "totalValue": 10.0, "maxValue": 10, "minValue": 10, "timestamp": "2020-02-24 00:55:47.631683", "name": "TestSensor"}
+Feb 24, 2020 12:56:51 AM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 10.0, "totalCount": 1.0, "totalValue": 10.0, "maxValue": 10, "minValue": 10, "timestamp": "2020-02-24 00:56:51.974105", "name": "TestSensor"}
+Feb 24, 2020 1:15:20 AM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.494956970214844, "totalCount": 1.0, "totalValue": 44.494956970214844, "maxValue": 44.494956970214844, "minValue": 44.494956970214844, "timestamp": "2020-02-24 01:15:20.196494", "name": "Temperature Sensor Data"}
+Feb 24, 2020 1:21:57 AM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.325111389160156, "totalCount": 1.0, "totalValue": 44.325111389160156, "maxValue": 44.325111389160156, "minValue": 44.325111389160156, "timestamp": "2020-02-24 01:21:57.102770", "name": "Temperature Sensor Data"}
+Feb 24, 2020 1:22:15 AM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.28736877441406, "totalCount": 1.0, "totalValue": 44.28736877441406, "maxValue": 44.28736877441406, "minValue": 44.28736877441406, "timestamp": "2020-02-24 01:22:15.428413", "name": "Temperature Sensor Data"}
+Feb 24, 2020 1:22:24 AM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.17414093017578, "totalCount": 1.0, "totalValue": 44.17414093017578, "maxValue": 44.17414093017578, "minValue": 44.17414093017578, "timestamp": "2020-02-24 01:22:24.053037", "name": "Temperature Sensor Data"}
+Feb 24, 2020 1:23:05 AM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.43833923339844, "totalCount": 1.0, "totalValue": 44.43833923339844, "maxValue": 44.43833923339844, "minValue": 44.43833923339844, "timestamp": "2020-02-24 01:23:05.342771", "name": "Temperature Sensor Data"}
+Feb 24, 2020 1:26:45 AM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.83464050292969, "totalCount": 1.0, "totalValue": 44.83464050292969, "maxValue": 44.83464050292969, "minValue": 44.83464050292969, "timestamp": "2020-02-24 01:26:45.852830", "name": "Temperature Sensor Data"}
+Feb 24, 2020 1:36:00 AM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.23075866699219, "totalCount": 1.0, "totalValue": 44.23075866699219, "maxValue": 44.23075866699219, "minValue": 44.23075866699219, "timestamp": "2020-02-24 01:36:00.342761", "name": "Temperature Sensor Data"}
+Feb 24, 2020 1:36:10 AM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.43833923339844, "totalCount": 1.0, "totalValue": 44.43833923339844, "maxValue": 44.43833923339844, "minValue": 44.43833923339844, "timestamp": "2020-02-24 01:36:10.655410", "name": "Temperature Sensor Data"}
+Feb 24, 2020 1:36:48 AM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.51382827758789, "totalCount": 1.0, "totalValue": 44.51382827758789, "maxValue": 44.51382827758789, "minValue": 44.51382827758789, "timestamp": "2020-02-24 01:36:48.261651", "name": "Temperature Sensor Data"}
+Feb 24, 2020 1:38:14 AM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.43833923339844, "totalCount": 1.0, "totalValue": 44.43833923339844, "maxValue": 44.43833923339844, "minValue": 44.43833923339844, "timestamp": "2020-02-24 01:38:14.363341", "name": "Temperature Sensor Data"}
+Feb 24, 2020 1:38:52 AM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.51382827758789, "totalCount": 1.0, "totalValue": 44.51382827758789, "maxValue": 44.51382827758789, "minValue": 44.51382827758789, "timestamp": "2020-02-24 01:38:52.332825", "name": "Temperature Sensor Data"}
+Feb 24, 2020 1:40:42 AM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.4760856628418, "totalCount": 1.0, "totalValue": 44.4760856628418, "maxValue": 44.4760856628418, "minValue": 44.4760856628418, "timestamp": "2020-02-24 01:40:42.705128", "name": "Temperature Sensor Data"}
+Feb 24, 2020 1:40:44 AM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.4760856628418, "totalCount": 1.0, "totalValue": 44.4760856628418, "maxValue": 44.4760856628418, "minValue": 44.4760856628418, "timestamp": "2020-02-24 01:40:44.942650", "name": "Temperature Sensor Data"}
+Feb 24, 2020 1:40:56 AM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.57044219970703, "totalCount": 1.0, "totalValue": 44.57044219970703, "maxValue": 44.57044219970703, "minValue": 44.57044219970703, "timestamp": "2020-02-24 01:40:56.395876", "name": "Temperature Sensor Data"}
+Feb 24, 2020 1:41:03 AM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.68367004394531, "totalCount": 1.0, "totalValue": 44.68367004394531, "maxValue": 44.68367004394531, "minValue": 44.68367004394531, "timestamp": "2020-02-24 01:41:03.332553", "name": "Temperature Sensor Data"}
+Feb 24, 2020 1:43:15 AM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.853515625, "totalCount": 1.0, "totalValue": 44.853515625, "maxValue": 44.853515625, "minValue": 44.853515625, "timestamp": "2020-02-24 01:43:15.362370", "name": "Temperature Sensor Data"}
+Feb 24, 2020 1:43:26 AM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.77803039550781, "totalCount": 1.0, "totalValue": 44.77803039550781, "maxValue": 44.77803039550781, "minValue": 44.77803039550781, "timestamp": "2020-02-24 01:43:26.374883", "name": "Temperature Sensor Data"}
+Feb 24, 2020 1:43:30 AM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.74028778076172, "totalCount": 1.0, "totalValue": 44.74028778076172, "maxValue": 44.74028778076172, "minValue": 44.74028778076172, "timestamp": "2020-02-24 01:43:30.102031", "name": "Temperature Sensor Data"}
+Feb 24, 2020 1:43:41 AM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.853515625, "totalCount": 1.0, "totalValue": 44.853515625, "maxValue": 44.853515625, "minValue": 44.853515625, "timestamp": "2020-02-24 01:43:41.064866", "name": "Temperature Sensor Data"}
+Feb 24, 2020 1:43:44 AM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: SENSOR JSON READ{"currentValue": 44.77803039550781, "totalCount": 1.0, "totalValue": 44.77803039550781, "maxValue": 44.77803039550781, "minValue": 44.77803039550781, "timestamp": "2020-02-24 01:43:44.765121", "name": "Temperature Sensor Data"}

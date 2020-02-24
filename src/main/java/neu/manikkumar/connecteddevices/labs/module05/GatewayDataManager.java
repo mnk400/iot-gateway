@@ -15,7 +15,6 @@ public class GatewayDataManager {
      * and publish it on database
      */ 
     private final static Logger LOGGER = Logger.getLogger("ManagerLogger");
-    public static boolean sendEmail = false;
     public static boolean enable    = false;
 
     public PersistenceUtil persistenceUtil;

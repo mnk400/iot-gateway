@@ -1,0 +1,76 @@
+Feb 23, 2020 11:40:21 PM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 23, 2020 11:40:27 PM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 23, 2020 11:40:33 PM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 23, 2020 11:40:39 PM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 23, 2020 11:41:26 PM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 23, 2020 11:41:36 PM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 23, 2020 11:41:42 PM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 23, 2020 11:41:48 PM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 23, 2020 11:42:43 PM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 23, 2020 11:42:49 PM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 23, 2020 11:44:16 PM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 23, 2020 11:44:22 PM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 23, 2020 11:44:29 PM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 23, 2020 11:45:19 PM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 23, 2020 11:45:25 PM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 23, 2020 11:45:31 PM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 24, 2020 12:55:47 AM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Increase","name":"TestSensor","value":"UPARROW"}
+Feb 24, 2020 12:56:51 AM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Increase","name":"TestSensor","value":"UPARROW"}
+Feb 24, 2020 1:15:20 AM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 24, 2020 1:21:57 AM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 24, 2020 1:22:15 AM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 24, 2020 1:22:24 AM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 24, 2020 1:23:05 AM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 24, 2020 1:26:45 AM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 24, 2020 1:36:00 AM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 24, 2020 1:36:10 AM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 24, 2020 1:36:48 AM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 24, 2020 1:38:14 AM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 24, 2020 1:38:52 AM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 24, 2020 1:40:42 AM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 24, 2020 1:40:44 AM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 24, 2020 1:40:56 AM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 24, 2020 1:41:03 AM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 24, 2020 1:43:15 AM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 24, 2020 1:43:26 AM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 24, 2020 1:43:30 AM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 24, 2020 1:43:41 AM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Feb 24, 2020 1:43:44 AM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}

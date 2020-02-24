@@ -1,6 +1,7 @@
 package neu.manikkumar.connecteddevices.labs.module05;
 import neu.manikkumar.connecteddevices.labs.module05.GatewayDataManager;
 
+
 /**
  * GatewayHandlerApp
  */
