@@ -3,32 +3,44 @@
  */
 package neu.manikkumar.connecteddevices.labs;
 
+import static org.junit.Assert.assertEquals;
+
+import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.MqttSecurityException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * Test class for all requisite Module06 functionality.
- * 
- * Instructions:
- * 1) Rename 'testSomething()' method such that 'Something' is specific to your needs; add others as needed, beginning each method with 'test...()'.
- * 2) Add the '@Test' annotation to each new 'test...()' method you add.
- * 3) Import the relevant modules and classes to support your tests.
- * 4) Run this class as unit test app.
- * 5) Include a screen shot of the report when you submit your assignment.
- * 
- * Please note: While some example test cases may be provided, you must write your own for the class.
- */
+import neu.manikkumar.connecteddevices.labs.module06.MqttClientConnector;
+import neu.manikkumar.connecteddevices.common.ActuatorData;
+import neu.manikkumar.connecteddevices.common.SensorData;
+import neu.manikkumar.connecteddevices.labs.module06.GatewayDataManager;
+import neu.manikkumar.connecteddevices.labs.module06.GatewayHandlerApp;
 public class Module06Test
 {
 	// setup methods
-	
+	GatewayDataManager dataHandler;
+	MqttClientConnector mqtt;
+	ActuatorData actuatorData;
+    SensorData sensorData;
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception
 	{
+		//Setting up resources
+		this.dataHandler = new GatewayDataManager(GatewayHandlerApp.IPADDRESS);
+		this.mqtt = new MqttClientConnector();
+        //Adding data to actuatorData
+        this.actuatorData = new ActuatorData();
+        this.actuatorData.setName("TestActuator");
+		this.actuatorData.setCommand("TestCommand");
+        this.actuatorData.setValue(0.0);
+        //SensorData instance filled with data
+		this.sensorData = new SensorData();
+		this.sensorData.setName("TestSensor");
+        this.sensorData.addValue(10);
 	}
 	
 	/**
@@ -37,17 +49,70 @@ public class Module06Test
 	@After
 	public void tearDown() throws Exception
 	{
+		this.dataHandler = null;
+		this.mqtt = null;
 	}
 	
 	// test methods
 	
 	/**
-	 * 
+	 * Testing the subscribeSensorData in the MqttClientConnecter class
+	 * @throws MqttException
+	 * @throws MqttSecurityException
 	 */
 	@Test
-	public void testSomething()
+	public void testSubscribeSensorData() throws MqttSecurityException, MqttException
 	{
-//		fail("Not yet implemented");
+		//Should always return a true
+		assertEquals(true, this.mqtt.subscribeSensorData());
+	}
+
+	/**
+	 * Testing the subscribeActuatorData in the MqttClientConnecter class
+	 * @throws MqttException
+	 * @throws MqttSecurityException
+	 */
+	@Test
+	public void testSubscribeActuatorData() throws MqttSecurityException, MqttException
+	{
+		//Should always return a true
+		assertEquals(true, this.mqtt.subscribeActuatorData());
+	}
+	
+	/**
+	 * Testing the subscribeSensorData in the MqttClientConnecter class
+	 * @throws MqttException
+	 * @throws MqttSecurityException
+	 */
+	@Test
+	public void testPublishSensorData() throws MqttSecurityException, MqttException
+	{
+		//Should always return a true
+		assertEquals(true, this.mqtt.publishSensorData(this.sensorData));
+	}
+
+	/**
+	 * Testing the subscribeSensorData in the MqttClientConnecter class
+	 * @throws MqttException
+	 * @throws MqttSecurityException
+	 */
+	@Test
+	public void testPublishActuatorData() throws MqttSecurityException, MqttException
+	{
+		//Should always return a true
+		assertEquals(true, this.mqtt.publishActuatorData(this.actuatorData));
+	}
+
+	/**
+	 * Testing the Run in the GatewayDataManager class
+	 * @throws MqttException
+	 * @throws MqttSecurityException
+	 */
+	@Test
+	public void testRun() throws MqttSecurityException, MqttException
+	{
+		//Should always return a true
+		assertEquals(true, this.dataHandler.run());
 	}
 	
 }
