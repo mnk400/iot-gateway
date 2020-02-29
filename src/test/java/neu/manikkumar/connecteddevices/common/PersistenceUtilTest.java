@@ -3,6 +3,7 @@ package neu.manikkumar.connecteddevices.common;
 import neu.manikkumar.connecteddevices.common.PersistenceUtil;
 import neu.manikkumar.connecteddevices.common.ActuatorData;
 import neu.manikkumar.connecteddevices.common.SensorData;
+import neu.manikkumar.connecteddevices.labs.module05.GatewayHandlerApp;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.After;
@@ -35,7 +36,7 @@ public class PersistenceUtilTest {
         */
 
         //Creating instances of PersistenceUtil and actuatorData
-        this.pUtil = new PersistenceUtil();
+        this.pUtil = new PersistenceUtil(GatewayHandlerApp.IPADDRESS);
         //Adding data to actuatorData
         this.actuatorData = new ActuatorData();
         this.actuatorData.setName("TestActuator");

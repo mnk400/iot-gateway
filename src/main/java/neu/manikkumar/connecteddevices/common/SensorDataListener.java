@@ -42,13 +42,14 @@ public class SensorDataListener extends JedisPubSub{
             this.connected = true;
         } catch (Exception e) {
             LOGGER.info("Caught an exception with jedis: SensorDataListener");
+            System.out.println(e);
             this.connected = false;
         }
 
         this.config = new ConfigUtil();
         this.nominal = config.getIntegerValue("device", "nominalTemp");
         //Initializing PersistenceUtil 
-        this.pUtil = new PersistenceUtil();
+        this.pUtil = new PersistenceUtil(host);
         this.actuatorData = new ActuatorData();
     }
 

@@ -9,6 +9,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import neu.manikkumar.connecteddevices.labs.module05.GatewayHandlerApp;
 import neu.manikkumar.connecteddevices.labs.module05.GatewayDataManager;
 public class Module05Test
 {
@@ -25,7 +26,7 @@ public class Module05Test
         Setting up resources
 		*/
 		//Init dataManager
-		this.dataManager = new GatewayDataManager();
+		this.dataManager = new GatewayDataManager(GatewayHandlerApp.IPADDRESS);
 	}
 	
 	/**

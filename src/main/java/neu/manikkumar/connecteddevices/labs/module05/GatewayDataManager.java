@@ -19,12 +19,12 @@ public class GatewayDataManager {
 
     public PersistenceUtil persistenceUtil;
     public SensorDataListener listener;
-    public GatewayDataManager(){
+    public GatewayDataManager(String IP){
         /*
         Constructor
         */
-        this.persistenceUtil = new PersistenceUtil();
-        this.listener = new SensorDataListener("squishypi.lan");
+        this.persistenceUtil = new PersistenceUtil(IP);
+        this.listener = new SensorDataListener(IP);
     }
 
     public boolean run(){

@@ -17,7 +17,6 @@ public class PersistenceUtil {
     private final static Logger LOGGER = Logger.getLogger("SensorDataListenerLogger");
     public static final Boolean enableThreads = true;
     //Setting address and port of your redis server
-    private static final String redisHost = "squishypi.lan";
     private static final Integer redisPort = 6379;
 
     //Setting channel strings for each both the channels
@@ -30,14 +29,14 @@ public class PersistenceUtil {
     private DataUtil dataUtil;
 
     public boolean connected = false;
-    public PersistenceUtil(){
+    public PersistenceUtil(String redisIP){
          /*
          Constructor
          */
         //Initializing the jedis variables
         try {
-          this.redisSensor   = new Jedis(redisHost, redisPort);
-          this.redisActuator = new Jedis(redisHost, redisPort);
+          this.redisSensor   = new Jedis(redisIP, redisPort);
+          this.redisActuator = new Jedis(redisIP, redisPort);
           //Selecting their respective databases
           this.redisActuator.select(0);
           this.redisSensor.select(1);
@@ -95,6 +94,7 @@ public class PersistenceUtil {
 
           return true;
         } catch (Exception e) {
+          System.out.println(e);
           return false;
         }
      }
@@ -114,6 +114,7 @@ public class PersistenceUtil {
 
           return true;
         } catch (Exception e) {
+          System.out.println(e);
           return false;
         }
          
