@@ -7,7 +7,7 @@ import neu.manikkumar.connecteddevices.labs.module05.GatewayDataManager;
  */
 public class GatewayHandlerApp {
 
-    public static final String IPADDRESS = "172.20.10.5";
+    public static final String IPADDRESS = "172.20.10.11";
     public static void main(String[] args) throws Exception {
         /*
         Module05 main funciton

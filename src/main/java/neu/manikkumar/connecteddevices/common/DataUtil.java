@@ -62,7 +62,7 @@ public class DataUtil {
         //variables from a specified object
         String jsonStr = this.gson.toJson(sensorData);
         //Logging and writing to file
-        this.writeSensorDataToFile("CONVERTED TO SENSORDATA FROM JSON" + jsonStr);
+        this.writeSensorDataToFile("Converted to JSON from sensorData\n" + pretty(jsonStr));
         return jsonStr;
     }
     // {"currentValue":10.0,"totalCount":1,"totalValue":10.0,"maxValue":10.0,"minValue":10.0,"timestamp":"2020-02-22 02:11:58.904","name":"Not Set"}
@@ -71,10 +71,10 @@ public class DataUtil {
          * Convert from SensorData instance to JSON
          */
         //Logging and writing to the file
-        this.writeSensorDataToFile("SENSOR JSON READ" + jsonStr);
+        this.writeSensorDataToFile("Converted to SensorData from JSON\n" + pretty(jsonStr));
         //gson allows us to create a class object directly from an input gson
         //string and a specified classtype 
-        SensorData sensorData = gson.fromJson(jsonStr,SensorData.class);
+        SensorData sensorData = gson.fromJson(pretty(jsonStr),SensorData.class);
         return sensorData;
     }  
     
@@ -92,7 +92,7 @@ public class DataUtil {
         */
         String jsonStr = this.gson.toJson(actuatorData);
         //Logging and writing to file
-        this.writeActuatorDataToFile("CONVERTED TO SENSORDATA FROM JSON" + jsonStr);
+        this.writeActuatorDataToFile("Converted to JSON from actuatorData\n" + pretty(jsonStr));
         return jsonStr;
     }
 
@@ -103,8 +103,8 @@ public class DataUtil {
         
         //gson allows us to automatically create a JSON from the public or protected
         //variables from a specified object
-        this.writeActuatorDataToFile("ACTUATOR JSON READ" + jsonStr);
-        ActuatorData actuatorData = gson.fromJson(jsonStr,ActuatorData.class);
+        this.writeActuatorDataToFile("Converted to ActuatorData from JSON\n" + jsonStr);
+        ActuatorData actuatorData = gson.fromJson(pretty(jsonStr),ActuatorData.class);
         System.out.println(actuatorData.getValue());
         return actuatorData;
     }  
@@ -115,6 +115,17 @@ public class DataUtil {
         */
         this.actuatorDatalogger.info(logData);
         return true;
+    }
+
+    public static String pretty(String str){
+        Gson gsonBuilder = new GsonBuilder().setPrettyPrinting().create();
+        //get a JsonParser
+        JsonParser jp = new JsonParser();
+        //get the parsed jsonString
+        JsonElement je = jp.parse(str);
+        //get the pretty printed JSON string
+        String jsonStrPretty = gsonBuilder.toJson(je);
+        return jsonStrPretty;
     }
     
 }
