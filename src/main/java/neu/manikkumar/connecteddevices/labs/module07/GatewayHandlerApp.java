@@ -1,19 +1,21 @@
-package neu.manikkumar.connecteddevices.labs.module06;
-import org.eclipse.paho.client.mqttv3.MqttException;
+package neu.manikkumar.connecteddevices.labs.module07;
+import java.net.SocketException;
 
-import neu.manikkumar.connecteddevices.labs.module06.GatewayDataManager;
+import org.eclipse.paho.client.mqttv3.MqttException;
+import neu.manikkumar.connecteddevices.labs.module07.GatewayDataManager;
+import neu.manikkumar.connecteddevices.labs.module07.CoAPServer;
+
 /**
  * GatewayHandlerApp
  */
 public class GatewayHandlerApp {
 
-    public static final String IPADDRESS = "172.20.10.5";
-    public static void main(String[] args) throws MqttException {
+    public static final String IPADDRESS = "bubblegum.lan";
+    public static void main(String[] args) throws SocketException {
+        
         GatewayDataManager dataManager = new GatewayDataManager(IPADDRESS);
-        //Enable/Disable the sensorData Listener
-        GatewayDataManager.enableSensor = true;
-        //Enable/Disable the actuatorData Listener
-        GatewayDataManager.enableActuator = false;
+        //Enable/Disable the CoAP Server
+        GatewayDataManager.enableCoAP = true;
         //Enable/Disable redis connection
         GatewayDataManager.enableRedis = false;
         dataManager.run();
