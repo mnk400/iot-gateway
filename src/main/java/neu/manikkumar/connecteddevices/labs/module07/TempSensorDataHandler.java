@@ -4,7 +4,8 @@ import org.eclipse.californium.core.CoapResource;
 import org.eclipse.californium.core.coap.CoAP.ResponseCode;
 import org.eclipse.californium.core.server.resources.CoapExchange;
 import java.util.logging.Logger;
-
+import neu.manikkumar.connecteddevices.common.SensorData;
+import neu.manikkumar.connecteddevices.common.DataUtil;
 /**
  * TempSensorDataHandler
  */
@@ -17,13 +18,15 @@ public class TempSensorDataHandler extends CoapResource{
     //Get a LOGGER
     private final static Logger LOGGER = Logger.getLogger("CoAPLogger");
     //Create a dataSTore
-    private String dataStore = null;
-
+    private SensorData dataStore = null;
+    //DataUtil
+    private DataUtil dataUtil;
 	public TempSensorDataHandler(String name) {
         /*
          Constructor
          */
-		super(name);	
+        super(name);	
+        this.dataUtil = new DataUtil();
     }
     
     @Override
@@ -50,12 +53,14 @@ public class TempSensorDataHandler extends CoapResource{
          */
         ce.respond(ResponseCode.VALID, "PUT_REQUEST_SUCCESS");
         //Store in the datastore
-        dataStore = ce.getRequestText();
-        LOGGER.info("Recieved JSON: " + dataStore);
+        String recv = ce.getRequestText();
+        LOGGER.info("Recieved CoAP Message: JSON: " + recv);
+        LOGGER.info("Converting to SensorData");
+        this.dataStore = this.dataUtil.toSensorDataFromJson(recv);
+        LOGGER.info("Converting SensorData back to JSON: " + this.dataUtil.toJsonFromSensorData(this.getText()));
     } 
 
-    public String getText(){
-        //Return datastore
+    public SensorData getText(){
         return this.dataStore;
     }
 }

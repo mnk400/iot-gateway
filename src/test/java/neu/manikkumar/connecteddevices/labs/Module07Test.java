@@ -3,51 +3,95 @@
  */
 package neu.manikkumar.connecteddevices.labs;
 
+import static org.junit.Assert.assertEquals;
+
+import java.net.SocketException;
+
+import org.eclipse.californium.core.CoapServer;
+import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.MqttSecurityException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * Test class for all requisite Module07 functionality.
- * 
- * Instructions:
- * 1) Rename 'testSomething()' method such that 'Something' is specific to your needs; add others as needed, beginning each method with 'test...()'.
- * 2) Add the '@Test' annotation to each new 'test...()' method you add.
- * 3) Import the relevant modules and classes to support your tests.
- * 4) Run this class as unit test app.
- * 5) Include a screen shot of the report when you submit your assignment.
- * 
- * Please note: While some example test cases may be provided, you must write your own for the class.
- */
+import neu.manikkumar.connecteddevices.labs.module07.CoAPServer;
+import neu.manikkumar.connecteddevices.labs.module07.TempSensorDataHandler;
+import neu.manikkumar.connecteddevices.common.ActuatorData;
+import neu.manikkumar.connecteddevices.common.SensorData;
+import neu.manikkumar.connecteddevices.labs.module07.GatewayDataManager;
+import neu.manikkumar.connecteddevices.labs.module07.GatewayHandlerApp;
 public class Module07Test
 {
 	// setup methods
-	
+	GatewayDataManager dataHandler;
+	CoAPServer coAP;
+	TempSensorDataHandler tempHandler;
+	ActuatorData actuatorData;
+    SensorData sensorData;
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception
 	{
+		//Setting up resources
+		this.dataHandler = new GatewayDataManager(GatewayHandlerApp.IPADDRESS);
+		this.coAP = new CoAPServer();
+		this.tempHandler = new TempSensorDataHandler("Temp");
+        //Adding data to actuatorData
+        this.actuatorData = new ActuatorData();
+        this.actuatorData.setName("TestActuator");
+		this.actuatorData.setCommand("TestCommand");
+        this.actuatorData.setValue(0.0);
+        //SensorData instance filled with data
+		this.sensorData = new SensorData();
+		this.sensorData.setName("TestSensor");
+        this.sensorData.addValue(10);
 	}
 	
 	/**
 	 * @throws java.lang.Exception
 	 */
+	
 	@After
 	public void tearDown() throws Exception
 	{
+		this.dataHandler = null;
+		this.coAP = null;
 	}
 	
 	// test methods
 	
 	/**
-	 * 
+	 * Testing the testServerStarter in CoAPServer
+	 * @throws SocketException
 	 */
 	@Test
-	public void testSomething()
+	public void testServerStarter() throws SocketException
 	{
-//		fail("Not yet implemented");
+		//Should always return a true
+		assertEquals(true, this.coAP.serverStarter());
+	}
+
+	/**
+	 * Testing the getText in TempSensorDataHandler
+	 */
+	@Test
+	public void testGetText() throws MqttSecurityException, MqttException
+	{
+		//Should always return a true
+		assertEquals(null, this.tempHandler.getText());
+	}
+	
+
+	/**
+	 * Testing the Run in the GatewayDataManager class
+	 */
+	@Test
+	public void testRun() throws MqttSecurityException, MqttException
+	{
+		//Should always return a true
+		assertEquals(true, this.dataHandler.run());
 	}
 	
 }

@@ -28,9 +28,10 @@ public class CoAPServer extends CoapServer {
         this.coapServer.add(this.tempResourceHandler);
     }
 
-    public void serverStarter() throws SocketException{
+    public Boolean serverStarter() throws SocketException{
         //Starting the server
         coapServer.start();
+        return true;
     }
 
     
