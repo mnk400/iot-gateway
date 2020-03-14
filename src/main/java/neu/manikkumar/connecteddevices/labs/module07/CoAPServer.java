@@ -25,7 +25,7 @@ public class CoAPServer extends CoapServer {
         this.coapServer = new CoapServer();
         //Adding resource to the server
         this.tempResourceHandler = new TempSensorDataHandler("temp");
-        this.coapServer.add(this.tempResourceHandler);s
+        this.coapServer.add(this.tempResourceHandler);
     }
 
     public void serverStarter() throws SocketException{
