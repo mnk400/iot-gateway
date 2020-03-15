@@ -11,11 +11,11 @@ import neu.manikkumar.connecteddevices.labs.module07.CoAPServer;
 public class GatewayHandlerApp {
 
     public static final String IPADDRESS = "bubblegum.lan";
-    public static void main(String[] args) throws SocketException {
+    public static void main(String[] args) throws SocketException, InterruptedException {
         
         GatewayDataManager dataManager = new GatewayDataManager(IPADDRESS);
         //Enable/Disable the CoAP Server
-        GatewayDataManager.enableCoAP = true;
+        GatewayDataManager.enableCoAP = false;
         //Enable/Disable redis connection
         GatewayDataManager.enableRedis = false;
         dataManager.run();

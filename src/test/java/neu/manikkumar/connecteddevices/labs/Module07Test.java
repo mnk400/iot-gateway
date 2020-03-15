@@ -14,6 +14,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import neu.manikkumar.connecteddevices.labs.module07.CoAPClientConnector;
 import neu.manikkumar.connecteddevices.labs.module07.CoAPServer;
 import neu.manikkumar.connecteddevices.labs.module07.TempSensorDataHandler;
 import neu.manikkumar.connecteddevices.common.ActuatorData;
@@ -27,7 +28,8 @@ public class Module07Test
 	CoAPServer coAP;
 	TempSensorDataHandler tempHandler;
 	ActuatorData actuatorData;
-    SensorData sensorData;
+	SensorData sensorData;
+	CoAPClientConnector coAPClient;
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -38,6 +40,8 @@ public class Module07Test
 		this.dataHandler = new GatewayDataManager(GatewayHandlerApp.IPADDRESS);
 		this.coAP = new CoAPServer();
 		this.tempHandler = new TempSensorDataHandler("Temp");
+		//CoAPClientConnector
+		this.coAPClient = new CoAPClientConnector("coap://coap.me:5683/test/test/test/test");
         //Adding data to actuatorData
         this.actuatorData = new ActuatorData();
         this.actuatorData.setName("TestActuator");
@@ -74,21 +78,73 @@ public class Module07Test
 	}
 
 	/**
+	 * Testing the DataGET in CoAPClientConnector
+	 */
+	@Test
+	public void testDataGET()
+	{
+		//Should always return a true
+		assertEquals(true, this.coAPClient.dataGET());
+	}
+
+	/**
+	 * Testing the DataPUT in CoAPClientConnector
+	 */
+	@Test
+	public void testDataPUT()
+	{
+		//Should always return a true
+		assertEquals(true, this.coAPClient.dataPUT("TEST"));
+	}
+
+	/**
+	 * Testing the DataPOST in CoAPClientConnector
+	 */
+	@Test
+	public void testDataPOST()
+	{
+		//Should always return a true
+		assertEquals(true, this.coAPClient.dataPOST("TEST"));
+	}
+
+	/**
+	 * Testing the PING in CoAPClientConnector
+	 */
+	@Test
+	public void testDataPING()
+	{
+		//Should always return a true
+		assertEquals(true, this.coAPClient.ping());
+	}
+
+	/**
+	 * Testing the DataDELETE in CoAPClientConnector
+	 */
+	@Test
+	public void testDataDELETE()
+	{
+		//Should always return a true
+		assertEquals(true, this.coAPClient.dataDELETE());
+	}
+
+
+	/**
 	 * Testing the getText in TempSensorDataHandler
 	 */
 	@Test
-	public void testGetText() throws MqttSecurityException, MqttException
+	public void testGetText()
 	{
 		//Should always return a true
-		assertEquals(null, this.tempHandler.getText());
+		assertEquals(true, this.coAPClient.dataGET());
 	}
 	
 
 	/**
 	 * Testing the Run in the GatewayDataManager class
+	 * @throws InterruptedException
 	 */
 	@Test
-	public void testRun() throws MqttSecurityException, MqttException
+	public void testRun() throws InterruptedException
 	{
 		//Should always return a true
 		assertEquals(true, this.dataHandler.run());

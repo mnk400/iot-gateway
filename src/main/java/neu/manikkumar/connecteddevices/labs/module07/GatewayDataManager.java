@@ -5,6 +5,9 @@ import neu.manikkumar.connecteddevices.common.SensorDataListener;
 import java.net.SocketException;
 import java.util.logging.Logger;
 
+import org.eclipse.californium.core.CoapClient;
+
+import java.lang.Thread;
 public class GatewayDataManager {
     /**
      * GatewayDataManager
@@ -18,7 +21,7 @@ public class GatewayDataManager {
 
     //Creating a Thread for CoAP Server
     Thread CoAPThread;
-
+    public CoAPClientConnector coAPClient;
     public PersistenceUtil persistenceUtil;
     public SensorDataListener listener;
     
@@ -43,13 +46,13 @@ public class GatewayDataManager {
 			}
 
         });
-
+        this.coAPClient = new CoAPClientConnector("coap://coap.me:5683/other/block");
         this.persistenceUtil = new PersistenceUtil(IP);
         this.listener = new SensorDataListener(IP);
 
     } 
 
-    public boolean run(){
+    public boolean run() throws InterruptedException{
         /**
         * Run method to run the threads 
         */
@@ -62,7 +65,7 @@ public class GatewayDataManager {
         else{
             LOGGER.info("CoAPServer");
         }
-
+        
         //Checking if Redis is enabled
         if(enableRedis == true && this.listener.connected == true && this.persistenceUtil.connected == true){
             //Running the listener, which sends actuatorData instances on the redis
@@ -71,7 +74,8 @@ public class GatewayDataManager {
         else{
             LOGGER.info("Listener did not run");
         }
-
+        //this.coAPClient.ping();
+        this.coAPClient.ping();
         return true;
     }
 }

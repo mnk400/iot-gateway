@@ -43,7 +43,7 @@ public class TempSensorDataHandler extends CoapResource{
          Method to handle POST
          */
         ce.respond(ResponseCode.VALID, "POST_REQUEST_SUCCESS");
-        LOGGER.info("Recieved JSON: " + ce.getRequestText());
+        LOGGER.info("Recieved Message: " + ce.getRequestText());
     }
     
     @Override
