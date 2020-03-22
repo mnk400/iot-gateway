@@ -1,22 +1,11 @@
-Mar 22, 2020 4:17:54 PM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
-INFO: Converted to JSON from sensorData
-{
-  "currentValue": 10.0,
-  "totalCount": 1,
-  "totalValue": 10.0,
-  "maxValue": 10.0,
-  "minValue": 10.0,
-  "timestamp": "2020-03-22 16:17:52.805",
-  "name": "TestSensor"
-}
-Mar 22, 2020 4:17:54 PM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+Mar 22, 2020 4:31:45 PM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
 INFO: Converted to SensorData from JSON
 {
-  "currentValue": 10.0,
-  "totalCount": 1,
-  "totalValue": 10.0,
-  "maxValue": 10.0,
-  "minValue": 10.0,
-  "timestamp": "2020-03-22 16:17:52.805",
-  "name": "TestSensor"
+  "currentValue": 40.28913879394531,
+  "totalCount": 10.0,
+  "totalValue": 403.42313385009766,
+  "maxValue": 40.27080535888672,
+  "minValue": 40.43582534790039,
+  "timestamp": "2020-03-22 20:31:47.253855",
+  "name": "Temperature Sensor Data"
 }

@@ -1,2 +1,0 @@
-Feb 29, 2020 2:38:28 PM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
-INFO: CONVERTED TO SENSORDATA FROM JSON{"command":"TestCommand","name":"TestActuator","value":0.0}

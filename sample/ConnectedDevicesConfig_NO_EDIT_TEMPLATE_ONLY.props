@@ -7,8 +7,12 @@ host           = things.ubidots.com
 port           = 8883
 useWebAccess   = True
 baseUrl        = https://things.ubidots.com/api/v1.6/
-certFile       = ./config/ubidots_cert.pem
-configPath     = ./config
+certFile       = config/ubidots_cert.pem
+configPath     = config
+mqttIp         = Not Set
+tempSensorId   = Not Set
+tempSensorTopic= Not Set
+tempActuaterTopic= Not Set
 
 [smtp.cloud]
 host           = Not Set

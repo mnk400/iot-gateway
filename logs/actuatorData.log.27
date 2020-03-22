@@ -1,7 +1,0 @@
-Mar 22, 2020 4:17:50 PM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
-INFO: Converted to JSON from actuatorData
-{
-  "command": "TestCommand",
-  "name": "TestActuator",
-  "value": 0.0
-}

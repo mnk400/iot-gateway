@@ -1,7 +1,21 @@
-Mar 22, 2020 4:17:50 PM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+Mar 22, 2020 4:31:28 PM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
 INFO: Converted to JSON from actuatorData
 {
-  "command": "TestCommand",
-  "name": "TestActuator",
-  "value": 0.0
+  "command": "Print",
+  "name": "Ubidots Recv Temperature ActuatorData",
+  "value": " 32"
+}
+Mar 22, 2020 4:31:32 PM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: Converted to JSON from actuatorData
+{
+  "command": "Print",
+  "name": "Ubidots Recv Temperature ActuatorData",
+  "value": " 38"
+}
+Mar 22, 2020 4:31:37 PM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: Converted to JSON from actuatorData
+{
+  "command": "Print",
+  "name": "Ubidots Recv Temperature ActuatorData",
+  "value": " 29"
 }

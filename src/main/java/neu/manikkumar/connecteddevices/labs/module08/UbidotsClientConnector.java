@@ -51,15 +51,20 @@ public class UbidotsClientConnector {
         //Retrieving the variable ID
         this.varID = cUtil.getValue("ubidots.cloud", "tempSensorId");
 
-        //Ubidots Variable
-        this.tempVar = apiClient.getVariable(this.varID);
+        try{
+            //Ubidots Variable
+            this.tempVar = apiClient.getVariable(this.varID);
 
-        //Initializing Mqtt Client
-        mqtt = new MqttClientConnector(cUtil.getValue("ubidots.cloud", "mqttIp"));
-        mqtt.setSensorTopic(cUtil.getValue("ubidots.cloud", "tempSensorTopic"));
-        mqtt.setActuatorTopic(cUtil.getValue("ubidots.cloud", "tempActuaterTopic"));
-        mqtt.connOpt.setSocketFactory(cert.loadCertificate(cUtil.getValue("ubidots.cloud", "certFile")));
-        mqtt.connOpt.setUserName(cUtil.getValue("ubidots.cloud", "authToken"));
+            //Initializing Mqtt Client
+            mqtt = new MqttClientConnector(cUtil.getValue("ubidots.cloud", "mqttIp"));
+            mqtt.setSensorTopic(cUtil.getValue("ubidots.cloud", "tempSensorTopic"));
+            mqtt.setActuatorTopic(cUtil.getValue("ubidots.cloud", "tempActuaterTopic"));
+            mqtt.connOpt.setSocketFactory(cert.loadCertificate(cUtil.getValue("ubidots.cloud", "certFile")));
+            mqtt.connOpt.setUserName(cUtil.getValue("ubidots.cloud", "authToken"));
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        
         
 
         //Creating a thread for the MQTT Listener
@@ -105,9 +110,15 @@ public class UbidotsClientConnector {
 
         //Setting payload from sensorData
         this.payload = sensorData.getCurrentValue();
+
         //Sending to ubidots
-        mqtt.publishNum(String.valueOf(payload));
-        LOGGER.info("UBIDOTS: Sent using MQTT");
+        try{
+            mqtt.publishNum(String.valueOf(payload));
+            LOGGER.info("UBIDOTS: Sent using MQTT");
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+        
         return true;
 
     }
