@@ -8,6 +8,13 @@
             "type": "java",
             "name": "CodeLens (Launch) - GatewayHandlerApp",
             "request": "launch",
+            "mainClass": "neu.manikkumar.connecteddevices.labs.module08.GatewayHandlerApp",
+            "projectName": "studentname-connected-devices-java"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - GatewayHandlerApp",
+            "request": "launch",
             "mainClass": "neu.manikkumar.connecteddevices.labs.module07.GatewayHandlerApp",
             "projectName": "studentname-connected-devices-java"
         },
