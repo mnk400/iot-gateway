@@ -27,6 +27,7 @@ public class SensorMqttCallback implements MqttCallback{
         /*
         Method called when the the connection disconnects
         */
+
 		LOGGER.info("MQTT:Connection to sensorTopic lost");
 	}
 
@@ -45,6 +46,8 @@ public class SensorMqttCallback implements MqttCallback{
         //Converting the recieved JSON into a sensorData instance
         SensorData temp = this.dataUtil.toSensorDataFromJson(new String(message.getPayload()));
 
+        //Alternatively sending data using MQTT and API
+        //Using a static var 'turn' to pass the current turn
         if(turn == 0){
             ubiConnect.sendTemperaturePayloadMQTT(temp);
             turn = 1;
@@ -60,6 +63,7 @@ public class SensorMqttCallback implements MqttCallback{
 		/*
         Method called when a message onto a topic is delivered
         */
+
 		LOGGER.info("MQTT:Payload delivered");
 	}
 }

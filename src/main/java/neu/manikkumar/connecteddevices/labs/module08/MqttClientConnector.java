@@ -42,6 +42,7 @@ public class MqttClientConnector{
         /*
          Constructor with an argument
         */
+
         //Setting up connection for MQTT
         this.connOpt.setCleanSession(true);
         this.client = new MqttClient(gIP, MqttClient.generateClientId());
@@ -51,6 +52,7 @@ public class MqttClientConnector{
         /*
          Constructor without an argument
         */
+
         //Setting up connection for MQTT
         this.connOpt.setCleanSession(true);
         this.client = new MqttClient(IP, MqttClient.generateClientId());   
@@ -60,6 +62,7 @@ public class MqttClientConnector{
         /*
          sensorData topic subscriber, this method subscribes to the sensorData topic
         */
+
         LOGGER.info("MQTT:Subscribing to sensorData topic");
         //Setting the callback methods
         this.client.setCallback( new SensorMqttCallback());
@@ -74,6 +77,7 @@ public class MqttClientConnector{
         /*
          sensorData topic subscriber, this method subscribes to the sensorData topic
         */
+
         LOGGER.info("MQTT:Subscribing to actuatorData topic");
         //Setting the callback methods
         this.client.setCallback( new ActuatorMqttCallback());
@@ -129,6 +133,10 @@ public class MqttClientConnector{
     }
 
     public boolean publishNum(String num) throws MqttException{
+        /*
+         Method to publish any kind of string on a topic
+         */
+
         //Logging
         LOGGER.info("MQTT:Publishing Numeric Value");
         //Setting the callback methods
@@ -148,6 +156,7 @@ public class MqttClientConnector{
         /**
          * Method to set mqtt topic for sensorData
          */
+
         sensorTopic = topic;
         return true;
     }
@@ -156,6 +165,7 @@ public class MqttClientConnector{
         /**
          * Method to set mqtt topic for sensorData
          */
+        
         actuatorTopic = topic;
         return true;
     }

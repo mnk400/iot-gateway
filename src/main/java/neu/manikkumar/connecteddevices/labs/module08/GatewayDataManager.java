@@ -51,8 +51,8 @@ public class GatewayDataManager {
         });
 
         //Initializing the PersistenceUtil, It's listener and an ubidots object
-        this.persistenceUtil = new PersistenceUtil(GatewayHandlerApp.REDIS_IP);
-        this.listener = new SensorDataListener(GatewayHandlerApp.REDIS_IP);
+        this.persistenceUtil = new PersistenceUtil(GatewayHandlerApp.IPADDRESS);
+        this.listener = new SensorDataListener(GatewayHandlerApp.IPADDRESS);
         this.ubidots = new UbidotsClientConnector();
 
     } 

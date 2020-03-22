@@ -17,7 +17,8 @@ public class ActuatorMqttCallback implements MqttCallback{
     public void connectionLost(Throwable cause) {
         /*
         Method called when the the connection disconnects
-        */
+		*/
+		
 		LOGGER.info("MQTT:Connection to sensorTopic lost");
 	}
 
@@ -35,8 +36,8 @@ public class ActuatorMqttCallback implements MqttCallback{
 		//Creating actuotorData instance
 		ActuatorData tempData = new ActuatorData();
 		tempData.setValue(value);
-		tempData.setName("Ubidots Recv Data");
-		tempData.setCommand("rint");
+		tempData.setName("Ubidots Recv Temperature ActuatorData");
+		tempData.setCommand("Print");
 		
 		//Sending actuatorData to IOT-Device
 		MqttClientConnector mqtt = new MqttClientConnector();
@@ -47,7 +48,8 @@ public class ActuatorMqttCallback implements MqttCallback{
 	public void deliveryComplete(IMqttDeliveryToken token) {
 		/*
         Method called when a message onto a topic is delivered
-        */
+		*/
+		
 		LOGGER.info("MQTT:Payload delivered");
 	}
 }

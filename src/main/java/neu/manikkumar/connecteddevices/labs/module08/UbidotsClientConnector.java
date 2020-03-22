@@ -16,6 +16,7 @@ public class UbidotsClientConnector {
     /**
      * Class that talks to Ubidots using Ubidots API
      */
+
     //Logger
     private final static Logger LOGGER = Logger.getLogger("MqttLogger");
 
@@ -74,7 +75,6 @@ public class UbidotsClientConnector {
 				}
             }
         });
-
     } 
 
     public boolean sendTemperaturePayload(SensorData sensorData){
@@ -82,6 +82,7 @@ public class UbidotsClientConnector {
          * Method responsible for sending the payload
          * to ubidots
          */
+
         try {
                 //Setting payload from sensorData
                 this.payload = sensorData.getCurrentValue();

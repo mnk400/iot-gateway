@@ -7,7 +7,7 @@ import neu.manikkumar.connecteddevices.labs.module08.GatewayDataManager;
  */
 public class GatewayHandlerApp {
 
-    public static final String REDIS_IP = "172.20.10.5";
+    public static final String IPADDRESS = "bubblegum.lan";
     public static void main(String[] args) throws MqttException {
     
         GatewayDataManager dataManager = new GatewayDataManager();
