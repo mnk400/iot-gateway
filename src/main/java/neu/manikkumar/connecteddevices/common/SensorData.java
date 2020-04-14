@@ -13,7 +13,7 @@ public class SensorData{
     //and then initializing the variables
     protected float currentValue = 0.0f;
     protected int totalCount     = 0;
-    protected float totalValue   = 0.0f;
+    protected float avgValue   = 0.0f;
     protected float maxValue     = 0.0f;
     protected float minValue     = 99;
     public String timestamp;
@@ -30,7 +30,7 @@ public class SensorData{
             //In a try block just in case a wrong datatype gets passed
             //Logging the data in our class variables
             //Calculating and updating values like averages/min/max as new data is input
-            this.totalValue   = this.totalValue + newVal;
+            this.avgValue   = (this.avgValue*this.totalCount + newVal)/(this.totalCount + 1);
             this.currentValue = newVal;
             this.timestamp    = String.valueOf(new Timestamp(new Date().getTime()));
             this.totalCount++;
@@ -55,7 +55,7 @@ public class SensorData{
         /*
          *Method returns the average value of all the values fed to the class object
          */
-        return this.totalValue/this.totalCount;
+        return this.avgValue;
     }
 
     public float getMaxValue() {

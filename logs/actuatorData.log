@@ -1,0 +1,29 @@
+Apr 14, 2020 12:41:18 AM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: Converted to JSON from actuatorData
+{
+  "command": "TestCommand",
+  "name": "TestActuator",
+  "value": 0.0
+}
+Apr 14, 2020 12:41:18 AM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: Converted to ActuatorData from JSON
+{"command":"TestCommand","name":"TestActuator","value":0.0}
+Apr 14, 2020 12:41:18 AM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: Converted to ActuatorData from JSON
+{"command":"Decrease","name":"Temperature Sensor Data","value":"DOWNARROW"}
+Apr 14, 2020 12:41:18 AM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: Converted to JSON from actuatorData
+{
+  "command": "Decrease",
+  "name": "Temperature Sensor Data",
+  "value": "DOWNARROW"
+}
+Apr 14, 2020 12:41:18 AM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: Converted to JSON from actuatorData
+{
+  "command": "TestCommand",
+  "name": "TestActuator",
+  "value": 0.0
+}
+Apr 14, 2020 12:41:18 AM neu.manikkumar.connecteddevices.common.DataUtil writeActuatorDataToFile
+INFO: {"command":"TestCommand","name":"TestActuator","value":0.0}

@@ -15,7 +15,8 @@ public class CoAPServer extends CoapServer {
      * Class responsible for creating and running the CoAP server
      */
     CoapServer coapServer;
-    TempSensorDataHandler tempResourceHandler;
+    HRSensorDataHandler hrResourceHandler;
+    SpO2SensorDataHandler spo2ResourceHandler;
 
     public CoAPServer() throws SocketException {
         /*
@@ -24,8 +25,10 @@ public class CoAPServer extends CoapServer {
 
         this.coapServer = new CoapServer();
         //Adding resource to the server
-        this.tempResourceHandler = new TempSensorDataHandler("SPO2");
-        this.coapServer.add(this.tempResourceHandler);
+        this.hrResourceHandler = new HRSensorDataHandler();
+        this.spo2ResourceHandler = new SpO2SensorDataHandler();
+        this.coapServer.add(this.hrResourceHandler);
+        this.coapServer.add(this.spo2ResourceHandler);
     }
 
     public Boolean serverStarter() throws SocketException{

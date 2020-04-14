@@ -34,7 +34,7 @@ public class DataUtilTest
 	ActuatorData actuatorData;
 
 	// JSON strings for testing
-	String sensorJSON = "{\"currentValue\":10.0,\"totalCount\":1,\"totalValue\":10.0,\"maxValue\":10.0,\"minValue\":10.0,\"timestamp\":\"2020-02-23 16:29:41.32\",\"name\":\"Temperature\"}";
+	String sensorJSON = "{\"currentValue\":10.0,\"totalCount\":1,\"avgValue\":10.0,\"maxValue\":10.0,\"minValue\":10.0,\"timestamp\":\"2020-02-23 16:29:41.32\",\"name\":\"Temperature\"}";
 	String actuatorJSON = "{\"command\":\"Decrease\",\"name\":\"Temperature Sensor Data\",\"value\":\"DOWNARROW\"}";
 	/**
 	 * @throws java.lang.Exception

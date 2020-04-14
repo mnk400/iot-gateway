@@ -9,7 +9,7 @@ import neu.manikkumar.connecteddevices.common.DataUtil;
 /**
  * TempSensorDataHandler
  */
-public class TempSensorDataHandler extends CoapResource{
+public class HRSensorDataHandler extends CoapResource{
     /**
      * TempSensorDataHandler
      * Class responsible for handling the user input from 
@@ -21,11 +21,12 @@ public class TempSensorDataHandler extends CoapResource{
     private SensorData dataStore = null;
     //DataUtil
     private DataUtil dataUtil;
-	public TempSensorDataHandler() {
+    
+	public HRSensorDataHandler() {
         /*
          Constructor
          */
-        super("temp");	
+        super("heartrate");	
         this.dataUtil = new DataUtil();
     }
     
@@ -43,7 +44,11 @@ public class TempSensorDataHandler extends CoapResource{
          Method to handle POST
          */
         ce.respond(ResponseCode.VALID, "POST_REQUEST_SUCCESS");
-        LOGGER.info("Recieved Message: " + ce.getRequestText());
+        //Store in the datastore
+        String recv = ce.getRequestText();
+        LOGGER.info("Recieved CoAP Message: JSON: " + recv);
+        LOGGER.info("Converting to SensorData");
+        this.dataStore = this.dataUtil.toSensorDataFromJson(recv);;
     }
     
     @Override
@@ -57,7 +62,6 @@ public class TempSensorDataHandler extends CoapResource{
         LOGGER.info("Recieved CoAP Message: JSON: " + recv);
         LOGGER.info("Converting to SensorData");
         this.dataStore = this.dataUtil.toSensorDataFromJson(recv);
-        LOGGER.info("Converting SensorData back to JSON: " + this.dataUtil.toJsonFromSensorData(this.getText()));
     } 
 
     public SensorData getText(){

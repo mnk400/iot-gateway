@@ -21,12 +21,12 @@ public class SpO2SensorDataHandler extends CoapResource{
     private SensorData dataStore = null;
     //DataUtil
     private DataUtil dataUtil;
-    
-	public SpO2SensorDataHandler(String name) {
+
+	public SpO2SensorDataHandler() {
         /*
          Constructor
          */
-        super(name);	
+        super("spo");	
         this.dataUtil = new DataUtil();
     }
     
@@ -44,7 +44,11 @@ public class SpO2SensorDataHandler extends CoapResource{
          Method to handle POST
          */
         ce.respond(ResponseCode.VALID, "POST_REQUEST_SUCCESS");
-        LOGGER.info("Recieved Message: " + ce.getRequestText());
+        //Store in the datastore
+        String recv = ce.getRequestText();
+        LOGGER.info("Recieved CoAP Message: JSON: " + recv);
+        LOGGER.info("Converting to SensorData");
+        this.dataStore = this.dataUtil.toSensorDataFromJson(recv);
     }
     
     @Override
@@ -58,7 +62,6 @@ public class SpO2SensorDataHandler extends CoapResource{
         LOGGER.info("Recieved CoAP Message: JSON: " + recv);
         LOGGER.info("Converting to SensorData");
         this.dataStore = this.dataUtil.toSensorDataFromJson(recv);
-        LOGGER.info("Converting SensorData back to JSON: " + this.dataUtil.toJsonFromSensorData(this.getText()));
     } 
 
     public SensorData getText(){
