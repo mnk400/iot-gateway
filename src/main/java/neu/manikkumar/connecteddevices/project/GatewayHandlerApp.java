@@ -1,9 +1,9 @@
-package neu.manikkumar.connecteddevices.labs.module07;
+package neu.manikkumar.connecteddevices.project;
 import java.net.SocketException;
 
 import org.eclipse.paho.client.mqttv3.MqttException;
-import neu.manikkumar.connecteddevices.labs.module07.GatewayDataManager;
-import neu.manikkumar.connecteddevices.labs.module07.CoAPServer;
+import neu.manikkumar.connecteddevices.project.GatewayDataManager;
+import neu.manikkumar.connecteddevices.project.CoAPServer;
 
 /**
  * GatewayHandlerApp
