@@ -1,0 +1,258 @@
+package neu.manikkumar.connecteddevices.project;
+import java.util.UUID;
+
+import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
+import org.eclipse.paho.client.mqttv3.MqttCallback;
+import org.eclipse.paho.client.mqttv3.MqttClient;
+import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
+import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
+import org.eclipse.paho.client.mqttv3.MqttSecurityException;
+import org.eclipse.paho.client.mqttv3.persist.MqttDefaultFilePersistence;
+import java.util.logging.Logger;
+import neu.manikkumar.connecteddevices.common.ActuatorData;
+import neu.manikkumar.connecteddevices.common.DataUtil;
+import neu.manikkumar.connecteddevices.common.SensorData;
+import neu.manikkumar.connecteddevices.project.SensorMqttCallback;
+
+
+public class MqttClientConnector{
+    /*
+    * MqttClientConnector
+    * Responsible for creating clients for sensorData and actuatorData MQTT topics
+    * which listens to the the topic and prints out data when recieved something.
+    */
+    //Static variables needed in this program
+    private final static Logger LOGGER = Logger.getLogger("MqttLogger");
+
+    //Setting up static variables
+    private static String IP = "tcp://broker.hivemq.com:1883";
+    private String sensorTopic = "topic/sensor";
+    private String actuatorTopic = "topic/actuator";
+    private String userCheckerTopic;
+    public String hrStatus;
+    public String spoStatus;
+
+    //Setting up MQTT client
+    private MqttClient client;
+    public MqttConnectOptions connOpt = new MqttConnectOptions();
+    
+    //DataUtil object
+    DataUtil dataUtil = new DataUtil();
+
+
+
+    public MqttClientConnector(String gIP) throws MqttException{
+        /*
+         Constructor with an argument
+        */
+
+        //Setting up connection for MQTT
+        this.connOpt.setCleanSession(true);
+        this.client = new MqttClient(gIP, MqttClient.generateClientId());
+    }
+
+    public MqttClientConnector() throws MqttException{
+        /*
+         Constructor without an argument
+        */
+
+        //Setting up connection for MQTT
+        this.connOpt.setCleanSession(true);
+        this.client = new MqttClient(IP, MqttClient.generateClientId());   
+    }
+    
+    public boolean subscribeSensorData() throws MqttSecurityException, MqttException{
+        /*
+         sensorData topic subscriber, this method subscribes to the sensorData topic
+        */
+
+        LOGGER.info("MQTT:Subscribing to sensorData topic");
+        //Setting the callback methods
+        this.client.setCallback( new SensorMqttCallback());
+        //Connecting
+        this.client.connect(connOpt);
+        //Subscribing to the sensorTopic
+        this.client.subscribe(sensorTopic, 2);
+        return true;
+    }
+
+
+    public boolean subscribeActuatorData() throws MqttSecurityException, MqttException{
+        /*
+         sensorData topic subscriber, this method subscribes to the sensorData topic
+        */
+
+        LOGGER.info("MQTT:Subscribing to actuatorData topic");
+        //Setting the callback methods
+        this.client.setCallback( new ActuatorMqttCallback());
+        //Connecting
+        this.client.connect(connOpt);
+        //Subscribing to the sensorTopic
+        this.client.subscribe(actuatorTopic, 2);
+        return true;
+    }
+
+    public boolean subscribeUserChecker() throws MqttSecurityException, MqttException{
+        /*
+         sensorData topic subscriber, this method subscribes to the sensorData topic
+        */
+
+        LOGGER.info("MQTT:Subscribing to UserChecker topic");
+        //Setting the callback methods
+        this.client.setCallback( new UserResponseCallback());
+        //Connecting
+        this.client.connect(connOpt);
+        //Subscribing to the sensorTopic
+        this.client.subscribe(userCheckerTopic, 2);
+        return true;
+    }
+
+    public boolean publishSensorData(SensorData sensorData) throws MqttSecurityException, MqttException{
+        /*
+         Method to publish a message on a MQTT topic
+        */
+
+        //Creating the JSON String
+        String jsonStr = dataUtil.toJsonFromSensorData(sensorData);
+        //Logging
+        LOGGER.info("MQTT:Publishing sensorData JSON");
+        //Setting the callback methods
+        this.client.setCallback( new SensorMqttCallback());
+        this.client.connect(connOpt);
+        //Creating a new Message 
+        MqttMessage message = new MqttMessage();
+        //Setting payload on the message
+        message.setPayload(jsonStr.getBytes());
+        //Publishing
+        this.client.publish(sensorTopic, message);
+        this.client.disconnect();
+        return true;
+    }
+
+    public boolean publishActuatorData(ActuatorData actuatorData) throws MqttSecurityException, MqttException{
+        /*
+         Method to publish a message on a MQTT topic
+        */
+
+        //Creating the JSON String
+        String jsonStr = dataUtil.toJsonFromActuatorData(actuatorData);
+        //Logging
+        LOGGER.info("MQTT:Publishing sensorData JSON");
+        //Setting the callback methods
+        this.client.setCallback( new SensorMqttCallback());
+        this.client.connect(connOpt);
+        //Creating a new Message 
+        MqttMessage message = new MqttMessage();
+        //Setting payload on the message
+        message.setPayload(jsonStr.getBytes());
+        //Publishing
+        this.client.publish(actuatorTopic, message);
+        this.client.disconnect();
+        return true;
+    }
+
+    public boolean publishNum(String num) throws MqttException{
+        /*
+         Method to publish any kind of string on a topic
+         */
+
+        //Logging
+        LOGGER.info("MQTT:Publishing Numeric Value");
+        //Setting the callback methods
+        this.client.setCallback( new SensorMqttCallback());
+        this.client.connect(connOpt);
+        //Creating a new Message 
+        MqttMessage message = new MqttMessage();
+        //Setting payload on the message
+        message.setPayload(num.getBytes());
+        //Publishing
+        this.client.publish(sensorTopic, message);
+        this.client.disconnect();
+        return true;
+    }
+
+    public boolean publishHrStatus(String status) throws MqttException{
+        /*
+         Method to publish any kind of string on a topic
+         */
+
+        //Logging
+        LOGGER.info("MQTT:Publishing Heartrate Status");
+        //Setting the callback methods
+        //this.client.setCallback( new SensorMqttCallback());
+        this.client.connect(connOpt);
+        //Creating a new Message 
+        MqttMessage message = new MqttMessage();
+        //Setting payload on the message
+        message.setPayload(status.getBytes());
+        //Publishing
+        this.client.publish(hrStatus, message);
+        this.client.disconnect();
+        return true;
+    }
+
+    public boolean publishSpoStatus(String status) throws MqttException{
+        /*
+         Method to publish any kind of string on a topic
+         */
+
+        //Logging
+        LOGGER.info("MQTT: Publishing SPO2 Status");
+        //Setting the callback methods
+        //this.client.setCallback( new SensorMqttCallback());
+        this.client.connect(connOpt);
+        //Creating a new Message 
+        MqttMessage message = new MqttMessage();
+        //Setting payload on the message
+        message.setPayload(status.getBytes());
+        //Publishing
+        this.client.publish(spoStatus, message);
+        this.client.disconnect();
+        return true;
+    }
+
+    public boolean setSensorTopic(String topic){
+        /**
+         * Method to set mqtt topic for sensorData
+         */
+
+        sensorTopic = topic;
+        return true;
+    }
+
+    public boolean setActuatorTopic(String topic){
+        /**
+         * Method to set mqtt topic for sensorData
+         */
+        
+        actuatorTopic = topic;
+        return true;
+    }
+
+    public boolean setUserCheckerTopic(String topic){
+        /**
+         * Method to set mqtt topic for sensorData
+         */
+        
+        userCheckerTopic = topic;
+        return true;
+    }
+
+    public boolean setHrStatusTopic(String topic){
+        /**
+         * Method to set mqtt topic for sensorData
+         */
+        
+        hrStatus = topic;
+        return true;
+    }
+    public boolean setSpoTopic(String topic){
+        /**
+         * Method to set mqtt topic for sensorData
+         */
+        
+        spoStatus = topic;
+        return true;
+    }
+}

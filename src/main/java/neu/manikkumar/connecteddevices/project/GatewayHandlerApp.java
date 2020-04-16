@@ -16,8 +16,7 @@ public class GatewayHandlerApp {
         GatewayDataManager dataManager = new GatewayDataManager(IPADDRESS);
         //Enable/Disable the CoAP Server
         GatewayDataManager.enableCoAP = true;
-        //Enable/Disable redis connection
-        GatewayDataManager.enableRedis = false;
+        GatewayDataManager.enableSysPerf = true;
         dataManager.run();
     }
     

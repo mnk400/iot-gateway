@@ -189,7 +189,7 @@ public class ConfigUtil{
             // Loading the file into the parser if it exists then logging and then returning a true
             this.parser = new HierarchicalINIConfiguration(this.configFile);
             this.configFileLoaded = true;
-            LOGGER.info("Config File loaded");
+            //LOGGER.info("Config File loaded");
             return true;
         }
         // Returning a false if the file doesn't exists and logging the event

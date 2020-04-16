@@ -3,13 +3,16 @@ package neu.manikkumar.connecteddevices.project;
 import org.eclipse.californium.core.CoapResource;
 import org.eclipse.californium.core.coap.CoAP.ResponseCode;
 import org.eclipse.californium.core.server.resources.CoapExchange;
+import org.eclipse.paho.client.mqttv3.MqttException;
+
 import java.util.logging.Logger;
 import neu.manikkumar.connecteddevices.common.SensorData;
 import neu.manikkumar.connecteddevices.common.DataUtil;
+import neu.manikkumar.connecteddevices.project.UbidotsClientConnector;
 /**
  * TempSensorDataHandler
  */
-public class TempSensorDataHandler extends CoapResource{
+public class CpuUsageDataHandler extends CoapResource{
     /**
      * TempSensorDataHandler
      * Class responsible for handling the user input from 
@@ -21,12 +24,15 @@ public class TempSensorDataHandler extends CoapResource{
     private SensorData dataStore = null;
     //DataUtil
     private DataUtil dataUtil;
-	public TempSensorDataHandler() {
+    //Ubidots
+    private UbidotsClientConnector ubidots;
+	public CpuUsageDataHandler() throws MqttException {
         /*
          Constructor
          */
-        super("temp");	
+        super("cpu");	
         this.dataUtil = new DataUtil();
+        this.ubidots = new UbidotsClientConnector(false);
     }
     
     @Override
@@ -42,8 +48,12 @@ public class TempSensorDataHandler extends CoapResource{
         /*
          Method to handle POST
          */
-        ce.respond(ResponseCode.VALID, "POST_REQUEST_SUCCESS");
-        LOGGER.info("Recieved Message: " + ce.getRequestText());
+        ce.respond(ResponseCode.VALID, "PUT_REQUEST_SUCCESS");
+        //Store in the datastore
+        String recv = ce.getRequestText();
+        LOGGER.info("Recieved System CPU Message: JSON: " + recv);
+        this.dataStore = this.dataUtil.toSensorDataFromJson(recv);
+        this.ubidots.sendCPUPayload(this.dataStore);
     }
     
     @Override
@@ -54,10 +64,9 @@ public class TempSensorDataHandler extends CoapResource{
         ce.respond(ResponseCode.VALID, "PUT_REQUEST_SUCCESS");
         //Store in the datastore
         String recv = ce.getRequestText();
-        LOGGER.info("Recieved CoAP Message: JSON: " + recv);
-        LOGGER.info("Converting to SensorData");
+        LOGGER.info("Recieved System CPU Message: JSON: " + recv);
         this.dataStore = this.dataUtil.toSensorDataFromJson(recv);
-        LOGGER.info("Converting SensorData back to JSON: " + this.dataUtil.toJsonFromSensorData(this.getText()));
+        this.ubidots.sendCPUPayload(this.dataStore);
     } 
 
     public SensorData getText(){
