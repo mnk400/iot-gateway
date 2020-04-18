@@ -11,21 +11,22 @@ import org.eclipse.paho.client.mqttv3.MqttSecurityException;
 
 /**
  * UbidotsClientConnector
+ * Class that talks to Ubidots using Ubidots API
  */
 public class UbidotsClientConnector {
-    /**
-     * Class that talks to Ubidots using Ubidots API
-     */
-
     //Logger
     private final static Logger LOGGER = Logger.getLogger("MqttLogger");
 
-
-     //Setting up variables required
+    //ConfigUtil for reading configFiles
     private ConfigUtil cUtil;
+
+    //MqttClient
     private static MqttClientConnector mqtt;
+    
+    //Ubidots apiClient
     private ApiClient apiClient;
-;
+
+    //Variables to send data to on ubidots
     private Variable cpuVar;
     private Variable memVar;
     private Variable gateCpuVar;
@@ -34,33 +35,33 @@ public class UbidotsClientConnector {
     private Variable spoVar;
     private Variable statusVar;
 
+    //APIKEY
     private String apiKey;
 
+    //VariableIDs on ubidots
     private String cpuVarID;
     private String memVarID;
     private String gateCpuID;
     private String gateMemID;
     private String statusVarID;
 
+    //Payload
     private float payload;
 
     //Cert Management
     CertManagementUtil cert = CertManagementUtil.getInstance();
+
+    //Thread for the MQTT listener on ubidots
     Thread ListenerThread;
     
+    /**
+     * Constructor that initializes the MQTTClient too
+     * @throws MqttException
+     */
     public UbidotsClientConnector() throws MqttException{
-        /**
-         * Constructor
-         */
-        
+
         //Initializing configUtil
         cUtil = new ConfigUtil();
-
-        //Retrieving the API Key
-        this.apiKey = cUtil.getValue("ubidots.cloud", "apiKey");
-
-        //Initializing the API client
-        this.apiClient = new ApiClient(this.apiKey);
 
         //Retrieving the variable IDs
         this.cpuVarID = cUtil.getValue("ubidots.cloud", "cpuVarId");
@@ -70,6 +71,12 @@ public class UbidotsClientConnector {
         this.statusVarID = cUtil.getValue("ubidots.cloud", "responseId");
 
         try{
+            //Retrieving the API Key
+            this.apiKey = cUtil.getValue("ubidots.cloud", "apiKey");
+
+            //Initializing the API client
+            this.apiClient = new ApiClient(this.apiKey);
+
             //Ubidots Variable
             this.cpuVar  = apiClient.getVariable(this.cpuVarID);
             this.memVar  = apiClient.getVariable(this.memVarID);
@@ -92,19 +99,14 @@ public class UbidotsClientConnector {
         
     } 
     
+    /**
+     * Constructor that doesn't initialize the MQTTClient
+     * @param noMqtt
+     */
     public UbidotsClientConnector(boolean noMqtt){
-        /**
-         * Constructor
-         */
         
         //Initializing configUtil
         cUtil = new ConfigUtil();
-
-        //Retrieving the API Key
-        this.apiKey = cUtil.getValue("ubidots.cloud", "apiKey");
-
-        //Initializing the API client
-        this.apiClient = new ApiClient(this.apiKey);
 
         //Retrieving the variable IDs
         this.cpuVarID = cUtil.getValue("ubidots.cloud", "cpuVarId");
@@ -114,6 +116,12 @@ public class UbidotsClientConnector {
         this.statusVarID = cUtil.getValue("ubidots.cloud", "responseId");
 
         try{
+            //Retrieving the API Key
+            this.apiKey = cUtil.getValue("ubidots.cloud", "apiKey");
+
+            //Initializing the API client
+            this.apiClient = new ApiClient(this.apiKey);
+
             //Ubidots Variable
             this.cpuVar  = apiClient.getVariable(this.cpuVarID);
             this.memVar  = apiClient.getVariable(this.memVarID);
@@ -126,11 +134,13 @@ public class UbidotsClientConnector {
         }
     }
 
+    /**
+     * Method responsible for sending the iot-device CPU payload
+     * to ubidots
+     * @param sensorData
+     * @return
+     */
     public boolean sendCPUPayload(SensorData sensorData){
-        /**
-         * Method responsible for sending the payload
-         * to ubidots
-         */
 
         try {
                 //Setting payload from sensorData
@@ -146,11 +156,13 @@ public class UbidotsClientConnector {
 
     }
 
+    /**
+     * Method responsible for sending the iot-device Memory payload
+     * to ubidots
+     * @param sensorData
+     * @return
+     */
     public boolean sendMemPayload(SensorData sensorData){
-        /**
-         * Method responsible for sending the payload
-         * to ubidots
-         */
 
         try {
                 //Setting payload from sensorData
@@ -166,6 +178,9 @@ public class UbidotsClientConnector {
 
     }
 
+    /**
+     * MqttListener to listen to variable value changes on ubidots
+     */
     public void ubidotsMqttListener(){
         //Creating a thread for the MQTT Listener
         ListenerThread = new Thread( new Runnable(){
@@ -182,11 +197,13 @@ public class UbidotsClientConnector {
         ListenerThread.start();
     }
 
+    /**
+     * Method responsible for sending the iot-gateway CPU usage payload
+     * to ubidots
+     * @param sensorData
+     * @return
+     */
     public boolean sendGateCpuPayload(SensorData sensorData){
-        /**
-         * Method responsible for sending the payload
-         * to ubidots
-         */
 
         try {
                 //Setting payload from sensorData
@@ -201,12 +218,13 @@ public class UbidotsClientConnector {
         return true;
 
     }
-
+    /**
+     * Method responsible for sending the iot-gatway memory usage payload
+     * to ubidots
+     * @param sensorData
+     * @return
+     */
     public boolean sendGateMemPayload(SensorData sensorData){
-        /**
-         * Method responsible for sending the payload
-         * to ubidots
-         */
 
         try {
                 //Setting payload from sensorData
@@ -222,11 +240,12 @@ public class UbidotsClientConnector {
 
     }
 
+    /**
+     * Method responsible for setting status of the switch
+     * back to zero
+     * @return
+     */
     public boolean setStatusZero(){
-        /**
-         * Method responsible for sending the payload
-         * to ubidots
-         */
 
         try {
 
@@ -241,6 +260,12 @@ public class UbidotsClientConnector {
 
     }
 
+    /**
+     * Method responsible for sending the heartrate payload
+     * to ubidots
+     * @param sensorData
+     * @return
+     */
     public boolean sendHrPayload(SensorData sensorData){
         /**
          * Method responsible for sending the payload
@@ -260,7 +285,12 @@ public class UbidotsClientConnector {
         return true;
 
     }
-
+    /**
+     * Method responsible for sending the SPO2 payload
+     * to ubidots
+     * @param sensorData
+     * @return
+     */
     public boolean sendSpoPayload(SensorData sensorData){
         /**
          * Method responsible for sending the payload
@@ -281,14 +311,21 @@ public class UbidotsClientConnector {
 
     }
 
+    /**
+     * Method responsible for sending the heartrate and current status 
+     * to ubidots using MQTT in JSON
+     * @param sensorData
+     * @param statusStr
+     * @return
+     */
     public boolean sendHrStatusMQTT(SensorData statusVar, String statusStr) throws MqttException{
         /**
          * Method responsible for sending the payload
          * to ubidots
          */
         Float status = statusVar.getCurrentValue();
+        //Creaing the JSON string
         String str = "{\"value\":" + status +", \"context\": {\"status\": \""+statusStr+"\"}}"; 
-        //String str = "{\"value\":10, \"context\": {\"machine\": \"1st floor\"}}";
         //Sending to ubidots
         try{
             mqtt.publishHrStatus(str);
@@ -300,14 +337,18 @@ public class UbidotsClientConnector {
         return true;
     }
 
+    /**
+     * Method responsible for sending the SPO2 and current status
+     * to ubidots using MQTT in a JSON
+     * @param sensorData
+     * @param statusStr
+     * @return
+     */
     public boolean sendSpoStatusMQTT(SensorData statusVar, String statusStr) throws MqttException{
-        /**
-         * Method responsible for sending the payload
-         * to ubidots
-         */
+
         Float status = statusVar.getCurrentValue();
+        //Creating the JSON string
         String str = "{\"value\":" + status +", \"context\": {\"status\": \""+statusStr+"\"}}"; 
-        //String str = "{\"value\":10, \"context\": {\"machine\": \"1st floor\"}}";
         //Sending to ubidots
         try{
             mqtt.publishSpoStatus(str);
@@ -315,10 +356,8 @@ public class UbidotsClientConnector {
         } catch(Exception e){
             e.printStackTrace();
         }
-        
         return true;
     }
-
 
 
 }

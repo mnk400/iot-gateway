@@ -20,6 +20,7 @@ public class GatewayDataManager {
     //Enable settings 
     public static boolean enableCoAP = false;
     public static boolean enableSysPerf = false;
+    public static boolean enableMqttListener = false;
 
     //Ubidots
     UbidotsClientConnector ubidots;
@@ -30,12 +31,14 @@ public class GatewayDataManager {
     //Gateway performance adapter
     public SystemPerformanceAdapter sysInfo;
 
-    public GatewayDataManager(String IP){
-        /*
-         Constructor
-         */
+    /**
+     * Constructor
+     */
+    public GatewayDataManager(){
+        
         //SystemInfo
         sysInfo = new SystemPerformanceAdapter(20);
+
         //Initializing the CoAPServer Thread
         this.CoAPThread = new Thread( new Runnable(){
 			public void run() {
@@ -53,6 +56,7 @@ public class GatewayDataManager {
 				}
 			}
         });
+        
         try {
 			this.ubidots = new UbidotsClientConnector();
 		} catch (MqttException e) {
@@ -60,12 +64,16 @@ public class GatewayDataManager {
 		}
     } 
 
+    /**
+     * Method to run the threads
+     * @return
+     * @throws InterruptedException
+     */
     public boolean run() throws InterruptedException{
-        /**
-        * Run method to run the threads 
-        */
+
         //SystemPerformance Thread
         if (enableSysPerf == true){
+            //Running the thread
             this.sysInfo.run();
         }
 
@@ -75,7 +83,11 @@ public class GatewayDataManager {
             this.CoAPThread.start();
         }
 
-        this.ubidots.ubidotsMqttListener();
+        //Checkinf if MQTTListener is enabled
+        if (enableMqttListener == true){
+            //Running the thread
+            this.ubidots.ubidotsMqttListener();
+        }
 
         
         return true;

@@ -12,15 +12,29 @@ import neu.manikkumar.connecteddevices.common.SensorData;
 import neu.manikkumar.connecteddevices.project.UbidotsClientConnector;
 import java.lang.Thread;
 
+/** 
+ * Threaded class that sends out the current system memory being used
+ * by the IOT-Gateway
+ */
 public class SystemMemUtilTask {
 
-	MemoryMXBean memBean;
-	MemoryUsage heap;
-	MemoryUsage nonheap;
-	UbidotsClientConnector ubidots;
-	int interval;
+	//Using memoryMXBean to get the memory details
+	private MemoryMXBean memBean;
+	private MemoryUsage heap;
+	private MemoryUsage nonheap;
+
+	//Ubidots Client
+	private UbidotsClientConnector ubidots;
+
+	//Sleep timer
+	private int interval;
+
+	//SensorData Object
+	private SensorData sensorData;
 	
+	//Logger
 	private final static Logger LOGGER = Logger.getLogger("MqttLogger");
+
 	/**
 	 * Constructor 
 	 * @throws MqttException
@@ -28,6 +42,7 @@ public class SystemMemUtilTask {
 	public SystemMemUtilTask(int intervalTime){
 		this.interval = intervalTime;
 		this.ubidots = new UbidotsClientConnector(false);
+		this.sensorData = new SensorData();
 	}
 
 	/**
@@ -36,9 +51,11 @@ public class SystemMemUtilTask {
 	 */
 	public float retmem() throws InterruptedException {
 		while(true){
+			//Reading the memory from the memoryBean
 			this.memBean 	= ManagementFactory.getMemoryMXBean();
 			this.heap 		= memBean.getHeapMemoryUsage();
 			this.nonheap		= memBean.getNonHeapMemoryUsage();
+			//Calculating heap and nonHeap usage
 			double heapUtil = ((double) this.heap.getUsed() / this.heap.getMax()) * 100;
 			double nonheapUtil = ((double) this.nonheap.getUsed() / this.nonheap.getMax()) * 100;
 			
@@ -48,11 +65,13 @@ public class SystemMemUtilTask {
 			if (heapUtil < 0) {
 				nonheapUtil = 0.0;
 			}
-
-			SensorData sensorData = new SensorData();
-			sensorData.addValue((float)heapUtil * 10);
+			//adding to sensorData
+			this.sensorData.addValue((float)heapUtil * 10);
 			LOGGER.info("Sending Gateway Memory Details to ubidots");
+			
+			//Sending to ubidots
 			this.ubidots.sendGateMemPayload(sensorData);
+			//sleeping for specified time interval in seconds
 			Thread.sleep(interval*1000);
 		}
 	}

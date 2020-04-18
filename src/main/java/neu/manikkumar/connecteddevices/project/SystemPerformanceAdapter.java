@@ -6,16 +6,31 @@ import neu.manikkumar.connecteddevices.project.SystemCpuUtilTask;
 import neu.manikkumar.connecteddevices.project.SystemMemUtilTask;
 import java.lang.Thread;
 
+/**
+ * SystemPerformanceAdapter
+ * class responsible for running two threads 
+ * for reading system information and sending it to ubidots
+ */
 public class SystemPerformanceAdapter {
+    
+    //Creaiting the two threads
     Thread cpu;
     Thread mem;
 
+    //Sleep timer
     static int intervalTime;
 
+    /**
+     * Constructor
+     * @param interval
+     */
     public SystemPerformanceAdapter(int interval){
        intervalTime = interval;
     }
 
+    /**
+     * Run method to run the two threads
+     */
     public void run(){
         this.cpu =new Thread( new Runnable(){
             SystemCpuUtilTask cpu;
@@ -44,7 +59,7 @@ public class SystemPerformanceAdapter {
                 
             }
         });
-
+        //Starting the two threads
         this.cpu.start();
         this.mem.start();
     }    

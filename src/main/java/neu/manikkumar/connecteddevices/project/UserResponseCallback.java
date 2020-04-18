@@ -41,9 +41,12 @@ public class UserResponseCallback implements MqttCallback{
 		String tempStr = new String(message.getPayload());
 		String value = tempStr.substring(9,13);
 		LOGGER.info("MQTT:Message received from ubidots:" + value );
+
+		//If the user reponse checker button is hit on the ubidots this activates
+		//if the value is 1.0, trigger a user checker
 		if(value.equals(" 1.0")){
             LOGGER.info("Checking if the user is okay");
-			
+			//spawn a reponseChecker thread
 			Thread responseThread = new Thread(new Runnable(){
                 ResponseChecker response = new ResponseChecker();
                 public void run() {

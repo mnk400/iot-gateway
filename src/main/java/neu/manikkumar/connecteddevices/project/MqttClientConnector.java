@@ -15,13 +15,13 @@ import neu.manikkumar.connecteddevices.common.DataUtil;
 import neu.manikkumar.connecteddevices.common.SensorData;
 import neu.manikkumar.connecteddevices.project.SensorMqttCallback;
 
-
+/**
+ * MqttClientConnector
+ * Responsible for creating clients for sensorData and actuatorData MQTT topics
+ * which listens to the the topic and prints out data when received something.
+ */
 public class MqttClientConnector{
-    /*
-    * MqttClientConnector
-    * Responsible for creating clients for sensorData and actuatorData MQTT topics
-    * which listens to the the topic and prints out data when recieved something.
-    */
+    
     //Static variables needed in this program
     private final static Logger LOGGER = Logger.getLogger("MqttLogger");
 

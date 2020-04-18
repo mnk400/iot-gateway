@@ -11,21 +11,22 @@ import neu.manikkumar.connecteddevices.common.DataUtil;
 import neu.manikkumar.connecteddevices.project.UbidotsClientConnector;
 /**
  * TempSensorDataHandler
+ * Class responsible for handling the user input from
  */
 public class MemUsageDataHandler extends CoapResource{
-    /**
-     * TempSensorDataHandler
-     * Class responsible for handling the user input from 
-     */
 
     //Get a LOGGER
     private final static Logger LOGGER = Logger.getLogger("CoAPLogger");
+
     //Create a dataSTore
     private SensorData dataStore = null;
+
     //DataUtil
     private DataUtil dataUtil;
+
     //Ubidots
     private UbidotsClientConnector ubidots;
+    
 	public MemUsageDataHandler() throws MqttException {
         /*
          Constructor

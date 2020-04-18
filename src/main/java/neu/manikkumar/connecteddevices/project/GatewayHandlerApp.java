@@ -10,13 +10,14 @@ import neu.manikkumar.connecteddevices.project.CoAPServer;
  */
 public class GatewayHandlerApp {
 
-    public static final String IPADDRESS = "bubblegum.lan";
+    
     public static void main(String[] args) throws SocketException, InterruptedException {
         
-        GatewayDataManager dataManager = new GatewayDataManager(IPADDRESS);
+        GatewayDataManager dataManager = new GatewayDataManager();
         //Enable/Disable the CoAP Server
         GatewayDataManager.enableCoAP = true;
         GatewayDataManager.enableSysPerf = true;
+        GatewayDataManager.enableMqttListener = true;
         dataManager.run();
     }
     

@@ -7,13 +7,14 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 
 /**
  * CoAPServer
+ * Class responsible for creating and running the CoAP server
  */
 public class CoAPServer extends CoapServer {
-    /**
-     * CoAPServer
-     * Class responsible for creating and running the CoAP server
-     */
+
+    //CoAPServer object
     CoapServer coapServer;
+
+    //Resources we'll be listening for
     HRSensorDataHandler hrResourceHandler;
     SpO2SensorDataHandler spo2ResourceHandler;
     CpuUsageDataHandler cpuResourceHandler;
@@ -26,12 +27,15 @@ public class CoAPServer extends CoapServer {
          */
 
         this.coapServer = new CoapServer();
-        //Adding resource to the server
+
+        //Creaing resources
         this.hrResourceHandler = new HRSensorDataHandler();
         this.spo2ResourceHandler = new SpO2SensorDataHandler();
         this.cpuResourceHandler = new CpuUsageDataHandler();
         this.memResourceHandler = new MemUsageDataHandler();
         this.userResponseHandler = new UserResponseHandler();
+        
+        //Adding resources to the server
         this.coapServer.add(this.hrResourceHandler);
         this.coapServer.add(this.spo2ResourceHandler);
         this.coapServer.add(this.cpuResourceHandler);

@@ -1,7 +1,7 @@
 [ubidots.cloud]
-apiKey         = Not Set
-userNameToken  = Not Set
-authToken      = Not Set
+apiKey         = BBFF-36036c09c1ce275fee84bdd958752ab2973
+userNameToken  = mnk400
+authToken      = BBFF-5FG328cyiAHpRUn5SAAk3hxwaJf3RF
 protocol       = ssl
 host           = things.ubidots.com
 port           = 8883
@@ -9,27 +9,27 @@ useWebAccess   = True
 baseUrl        = https://things.ubidots.com/api/v1.6/
 certFile       = config/ubidots_cert.pem
 configPath     = config
-mqttIp         = Not Set
-tempSensorId   = Not Set
-cpuVarId       = Not Set
-memVarId       = Not Set
-gateCpuId      = Not Set
-gateMemId      = Not Set
-responseId     = Not Set
-hrStatus       = Not Set
-spoStatus      = Not Set
-userChecker    = Not Set
-tempSensorTopic= Not Set
-tempActuaterTopic= Not Set
+mqttIp         = ssl://industrial.api.ubidots.com:8883
+tempSensorId   = 5e7405380ff4c358012b8a90
+cpuVarId       = 5e96481e1d847202b4f1b372
+memVarId       = 5e964a561d8472087355136a
+gateCpuId      = 5e976a311d847266da12977a
+gateMemId      = 5e976a401d847264eaa4f1cb
+responseId     = 5e97a5371d84726de86feeee
+hrStatus       = /v1.6/devices/rpi/heart-rate-status
+spoStatus      = /v1.6/devices/rpi/spo-status
+userChecker    = /v1.6/devices/rpi/response-checker
+tempSensorTopic= /v1.6/devices/rpi/temp-sensor
+tempActuaterTopic= /v1.6/devices/rpi/response-checker
 
 [smtp.cloud]
-host           = Not Set
+host           = smtp.gmail.com
 port           = 465
-fromAddr       = Not Set
-toAddr         = Not Set
+fromAddr       = iot.devices.manik@gmail.com
+toAddr         = iot.devices.manik@gmail.com
 toMediaAddr    = Not Set
 toTxtAddr      = Not Set
-authToken      = Not Set
+authToken      = jrcmbtetspwxhqtp
 enableAuth     = True
 enableCrypt    = True
 

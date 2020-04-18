@@ -10,28 +10,32 @@ import neu.manikkumar.connecteddevices.project.MqttClientConnector;
 import neu.manikkumar.connecteddevices.project.ResponseChecker;
 
 /**
- * MqttCallback
+ * MqttCallback for actuatorTopic
  */
 public class ActuatorMqttCallback implements MqttCallback{
 
     private final static Logger LOGGER = Logger.getLogger("MqttCallbackLogger");
 	UbidotsClientConnector ubidots;
 
+	/**
+	 * Constructor
+	 */
 	public ActuatorMqttCallback(){
 		ubidots = new UbidotsClientConnector(false);
 	}
+	
+	/**
+	 * Method called when the the connection disconnects
+	 */
     public void connectionLost(Throwable cause) {
-        /*
-        Method called when the the connection disconnects
-		*/
 		
 		LOGGER.info("MQTT:Connection to actuatorTopic lost");
 	}
 
+	/** 
+     * Method called when the a message is received
+	 */
 	public void messageArrived(String topic, MqttMessage message) throws Exception {
-		/*
-        Method called when the a message is received
-		*/
 
 		//Reading message recieved
 		String tempStr = new String(message.getPayload());
@@ -39,12 +43,11 @@ public class ActuatorMqttCallback implements MqttCallback{
 		LOGGER.info("MQTT:Message received from ubidots:" + tempStr );
 
 	}
-
+	/**
+	 * Method called when a message onto a topic is delivered
+	 */
 	public void deliveryComplete(IMqttDeliveryToken token) {
-		/*
-        Method called when a message onto a topic is delivered
-		*/
-		
+
 		LOGGER.info("MQTT:Payload delivered");
 	}
 }
