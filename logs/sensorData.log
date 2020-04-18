@@ -1,0 +1,22 @@
+Apr 18, 2020 12:27:38 AM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: Converted to JSON from sensorData
+{
+  "currentValue": 10.0,
+  "totalCount": 1,
+  "avgValue": 10.0,
+  "maxValue": 10.0,
+  "minValue": 10.0,
+  "timestamp": "2020-04-18 00:27:37.591",
+  "name": "TestSensor"
+}
+Apr 18, 2020 12:27:40 AM neu.manikkumar.connecteddevices.common.DataUtil writeSensorDataToFile
+INFO: Converted to SensorData from JSON
+{
+  "currentValue": 10.0,
+  "totalCount": 1,
+  "avgValue": 10.0,
+  "maxValue": 10.0,
+  "minValue": 10.0,
+  "timestamp": "2020-04-18 00:27:37.591",
+  "name": "TestSensor"
+}
