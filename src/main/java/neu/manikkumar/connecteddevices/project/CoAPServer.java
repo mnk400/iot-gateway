@@ -45,7 +45,11 @@ public class CoAPServer extends CoapServer {
 
     public Boolean serverStarter() throws SocketException{
         //Starting the server
+        try{
         coapServer.start();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return true;
     }
 
