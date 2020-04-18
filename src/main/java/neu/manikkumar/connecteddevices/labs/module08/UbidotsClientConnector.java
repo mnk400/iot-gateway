@@ -45,13 +45,15 @@ public class UbidotsClientConnector {
         //Retrieving the API Key
         this.apiKey = cUtil.getValue("ubidots.cloud", "apiKey");
 
-        //Initializing the API client
-        this.apiClient = new ApiClient(this.apiKey);
+        
 
         //Retrieving the variable ID
         this.varID = cUtil.getValue("ubidots.cloud", "tempSensorId");
 
         try{
+            
+            //Initializing the API client
+            this.apiClient = new ApiClient(this.apiKey);
             //Ubidots Variable
             this.tempVar = apiClient.getVariable(this.varID);
 

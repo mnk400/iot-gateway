@@ -18,7 +18,7 @@ import neu.manikkumar.connecteddevices.project.SensorMqttCallback;
 /**
  * MqttClientConnector
  * Responsible for creating clients for sensorData and actuatorData MQTT topics
- * which listens to the the topic and prints out data when received something.
+ * which listens to the the topic and prints out data when recieved something.
  */
 public class MqttClientConnector{
     

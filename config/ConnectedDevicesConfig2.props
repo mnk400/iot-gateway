@@ -1,0 +1,89 @@
+[ubidots.cloud]
+apiKey         = BBFF-36036c09c1ce275fee84bdd958752ab2973
+userNameToken  = mnk400
+authToken      = BBFF-5FG328cyiAHpRUn5SAAk3hxwaJf3RF
+protocol       = ssl
+host           = things.ubidots.com
+port           = 8883
+useWebAccess   = True
+baseUrl        = https://things.ubidots.com/api/v1.6/
+certFile       = config/ubidots_cert.pem
+configPath     = config
+mqttIp         = ssl://industrial.api.ubidots.com:8883
+tempSensorId   = 5e7405380ff4c358012b8a90
+cpuVarId       = 5e96481e1d847202b4f1b372
+memVarId       = 5e964a561d8472087355136a
+gateCpuId      = 5e976a311d847266da12977a
+gateMemId      = 5e976a401d847264eaa4f1cb
+responseId     = 5e97a5371d84726de86feeee
+hrStatus       = /v1.6/devices/rpi/heart-rate-status
+spoStatus      = /v1.6/devices/rpi/spo-status
+userChecker    = /v1.6/devices/rpi/response-checker
+tempSensorTopic= /v1.6/devices/rpi/temp-sensor
+tempActuaterTopic= /v1.6/devices/rpi/response-checker
+
+[smtp.cloud]
+host           = smtp.gmail.com
+port           = 465
+fromAddr       = iot.devices.manik@gmail.com
+toAddr         = iot.devices.manik@gmail.com
+toMediaAddr    = Not Set
+toTxtAddr      = Not Set
+authToken      = jrcmbtetspwxhqtp
+enableAuth     = True
+enableCrypt    = True
+
+[mqtt.cloud]
+userNameToken  = Not Set
+authToken      = Not Set
+host           = test.mosquitto.org
+port           = 1883
+securePort     = 1884
+defaultQos     = 0
+enableAuth     = False
+enableCrypt    = False
+keepAlive      = 60
+
+[coap.cloud]
+userNameToken  = Not Set
+authToken      = Not Set
+host           = 127.0.0.1
+port           = 5683
+securePort     = 5684
+enableAuth     = False
+enableCrypt    = False
+
+[mqtt.gateway]
+userNameToken  = Not Set
+authToken      = Not Set
+host           = 127.0.0.1
+port           = 1883
+securePort     = 1884
+defaultQos     = 2
+enableCrypt    = False
+
+[coap.gateway]
+userNameToken  = Not Set
+authToken      = Not Set
+host           = 127.0.0.1
+port           = 5683
+securePort     = 5684
+enableCrypt    = False
+
+[coap.device]
+userNameToken  = Not Set
+authToken      = Not Set
+host           = 127.0.0.1
+port           = 5683
+securePort     = 5684
+enableCrypt    = False
+
+[gateway]
+enableLogging  = True
+cloudSvcType   = UBIDOTS
+#cloudSvcType   = MQTT
+
+[device]
+enableEmulator = True
+pollCycleSecs  = 60
+nominalTemp    = 20
