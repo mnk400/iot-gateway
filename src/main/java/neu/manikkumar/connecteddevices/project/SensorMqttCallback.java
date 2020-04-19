@@ -15,7 +15,7 @@ import neu.manikkumar.connecteddevices.project.UbidotsClientConnector;
 public class SensorMqttCallback implements MqttCallback{
     /**
      * Class that consists of the callback methods for
-     * Sensor MQTT client
+     * Sensor MQTT clcent
      */
     
     private final static Logger LOGGER = Logger.getLogger("MqttCallbackLogger");

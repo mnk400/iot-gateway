@@ -92,7 +92,7 @@ public class SpO2SensorDataHandler extends CoapResource{
         if(count == 5){
             try {
                 //sending the data to ubidots using MQTT and the current status
-                this.ubidots.sendHrStatusMQTT(this.dataStore, this.status);
+                this.ubidots.sendSpoStatusMQTT(this.dataStore, this.status);
             } catch (MqttException e) {
                 e.printStackTrace();
         }
@@ -126,7 +126,7 @@ public class SpO2SensorDataHandler extends CoapResource{
         if(count == 5){
             try {
                 //sending the data to ubidots using MQTT and the current status
-                this.ubidots.sendHrStatusMQTT(this.dataStore, this.status);
+                this.ubidots.sendSpoStatusMQTT(this.dataStore, this.status);
             } catch (MqttException e) {
                 e.printStackTrace();
         }
