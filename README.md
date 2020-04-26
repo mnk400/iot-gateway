@@ -1,4 +1,4 @@
 # Gateway
 ![](https://github.com/mnk400/iot-gateway/workflows/Java%20CI/badge.svg)
 
-Gateway repository containing Modules and an auto build pipeline a semester course. Java. CSYE6530.
+Gateway repository containing modules, the semester project, and an auto build pipeline for the connected-devices(CSYE6530) course.
